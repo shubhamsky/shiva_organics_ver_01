@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Contact | Shiva Organics</title>
+
+  <link rel="stylesheet" href="css/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="brand">
+      <img src="images/logo.png" alt="Shiva Organics logo" class="logo" />
+      <div>
+        <h1 class="brand-title">Shiva Organics</h1>
+        <p class="brand-sub">Pure • Natural • Cold Pressed</p>
+      </div>
+    </div>
+
+    <nav class="main-nav" aria-label="Main navigation">
+      <a href="index.html" class="nav-link">Home</a>
+      <a href="products.html" class="nav-link">Products</a>
+      <a href="about.html" class="nav-link">About</a>
+      <a href="contact.html" class="nav-link active">Contact</a>
+      <button class="nav-toggle" aria-label="Open menu">☰</button>
+    </nav>
+  </header>
+
+  <main>
+    <section class="section contact">
+      <h2 class="section-title animate-up">Get In Touch / Place an Order</h2>
+
+      <div class="contact-grid">
+        <div class="contact-info animate-item">
+          <p>📞 <a href="https://wa.me/919270288488" target="_blank" rel="noopener">+91 92702 88488</a></p>
+          <p>📧 <a href="mailto:shivaorganicsofficial@gmail.com">shivaorganicsofficial@gmail.com</a></p>
+          <p>📍 Mumbai, India</p>
+        </div>
+
+        <form id="orderForm" class="order-form animate-item" onsubmit="return false;">
+          <label for="custName">Full name</label>
+          <input id="custName" type="text" placeholder="Your full name" required />
+
+          <label for="oilType">Choose oil</label>
+          <select id="oilType" required>
+            <option value="">-- select an oil --</option>
+            <option>Coconut Oil</option>
+            <option>Groundnut Oil</option>
+            <option>Sesame Oil</option>
+            <option>Almond Oil</option>
+            <option>Mustard Oil</option>
+          </select>
+
+          <label for="qty">Quantity (Litres)</label>
+          <input id="qty" type="number" min="1" placeholder="e.g., 2" required />
+
+          <label for="addr">Delivery address</label>
+          <textarea id="addr" rows="3" placeholder="Full delivery address" required></textarea>
+
+          <button id="sendOrderBtn" class="btn btn-solid">Send Order via WhatsApp</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>© 2025 Shiva Organics</p>
+  </footer>
+
+  <a class="whatsapp-float" href="https://wa.me/919270288488" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+    <img src="images/whatsapp-icon.png" alt="WhatsApp" />
+  </a>
+
+  <script src="js/script.js" defer></script>
+</body>
+</html>
