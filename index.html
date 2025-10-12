@@ -3,77 +3,270 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Shiva Organics | 100% Natural Cold Pressed Oils</title>
+  <title>Shiva Organics | Pure Cold Pressed Oils</title>
 
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <!-- CSS -->
   <link rel="stylesheet" href="css/style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet" />
 </head>
 <body>
+  <!-- Header -->
   <header class="site-header">
-    <div class="brand">
-      <img src="images/logo.png" alt="Shiva Organics logo" class="logo" />
-      <div>
-        <h1 class="brand-title">Shiva Organics</h1>
-        <p class="brand-sub">Pure • Natural • Cold Pressed</p>
+    <div class="container header-inner">
+      <div class="brand">
+        <img src="https://images.unsplash.com/photo-1524594154908-ef8ffb2b1cbb?auto=format&fit=crop&w=200&q=60" alt="Shiva Organics" class="logo">
+        <div class="brand-text">
+          <h1>Shiva Organics</h1>
+          <p class="tag">Pure • Natural • Cold Pressed</p>
+        </div>
       </div>
-    </div>
 
-    <nav class="main-nav" aria-label="Main navigation">
-      <a href="index.html" class="nav-link active">Home</a>
-      <a href="products.html" class="nav-link">Products</a>
-      <a href="about.html" class="nav-link">About</a>
-      <a href="contact.html" class="nav-link">Contact</a>
-      <button class="nav-toggle" aria-label="Open menu">☰</button>
-    </nav>
+      <nav class="main-nav" aria-label="Main navigation">
+        <a href="#home" class="nav-link active">Home</a>
+        <a href="#features" class="nav-link">Why Us</a>
+        <a href="#products" class="nav-link">Products</a>
+        <a href="#about" class="nav-link">About</a>
+        <a href="#contact" class="nav-link">Contact</a>
+        <button class="nav-toggle" aria-label="Toggle menu">☰</button>
+      </nav>
+    </div>
   </header>
 
   <main>
-    <!-- Hero -->
-    <section class="hero">
-      <img src="images/hero-banner.jpg" alt="Cold pressed oil banner" class="hero-bg" />
-      <div class="hero-panel animate-up">
-        <h2 class="hero-title">Nature's Goodness, Cold Pressed</h2>
-        <p class="hero-sub">Healthy oils made from premium seeds using traditional methods — no chemicals, no adulteration.</p>
-        <div class="hero-ctas">
-          <a href="products.html" class="btn btn-solid">Explore Products</a>
-          <a href="https://wa.me/919270288488" class="btn btn-outline" target="_blank" rel="noopener">Order on WhatsApp</a>
+    <!-- HERO -->
+    <section id="home" class="hero">
+      <div class="hero-inner container">
+        <div class="hero-copy animate-up">
+          <h2 class="display-title">Nature's Goodness, Cold Pressed</h2>
+          <p class="lead">Small-batch, traditionally pressed oils — no additives, no compromise.</p>
+          <div class="hero-ctas">
+            <a href="#products" class="btn btn-primary">Our Products</a>
+            <a href="https://wa.me/919270288488" class="btn btn-outline" target="_blank" rel="noopener">Order on WhatsApp</a>
+          </div>
+        </div>
+
+        <div class="hero-image animate-item">
+          <img src="https://images.pexels.com/photos/163352/olive-oil-bottle-olive-jar-163352.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="Oil bottles">
         </div>
       </div>
     </section>
 
-    <!-- Features -->
-    <section class="section features">
-      <h3 class="section-title animate-up">Why Shiva Organics?</h3>
-      <div class="feature-grid">
-        <div class="feature-card animate-item">
-          <div class="feature-ico">🌿</div>
-          <p>100% Natural & Chemical-free</p>
+    <!-- FEATURES (added below hero) -->
+    <section id="features" class="section features">
+      <div class="container">
+        <h3 class="section-title animate-up">Why Shiva Organics?</h3>
+
+        <div class="feature-grid">
+          <!-- Leaf (100% Natural) -->
+          <div class="feature-card animate-item" aria-hidden="false">
+            <div class="feature-ico" aria-hidden="true">
+              <!-- Lucide-style Leaf SVG -->
+              <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg">
+                <path d="M2 20s7-6 10-6 10 6 10 6" />
+                <path d="M8 12c3-3 7-6 13-6" />
+              </svg>
+            </div>
+            <p><strong>100% Natural & Chemical-free</strong></p>
+          </div>
+
+          <!-- Droplet (Cold pressed) -->
+          <div class="feature-card animate-item">
+            <div class="feature-ico">
+              <!-- Droplet SVG -->
+              <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 2s6 6 6 10a6 6 0 1 1-12 0C6 8 12 2 12 2z"/>
+              </svg>
+            </div>
+            <p><strong>Cold pressed & unrefined</strong></p>
+          </div>
+
+          <!-- Truck (Free delivery) -->
+          <div class="feature-card animate-item">
+            <div class="feature-ico">
+              <!-- Truck SVG -->
+              <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg">
+                <rect x="1" y="3" width="15" height="13" rx="2"></rect>
+                <path d="M16 8h5l2 3v5"></path>
+                <circle cx="5.5" cy="18.5" r="1.5"></circle>
+                <circle cx="18.5" cy="18.5" r="1.5"></circle>
+              </svg>
+            </div>
+            <p><strong>Free home delivery</strong></p>
+          </div>
+
+          <!-- BadgeCheck (Quality tested) -->
+          <div class="feature-card animate-item">
+            <div class="feature-ico">
+              <!-- Check badge SVG -->
+              <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg">
+                <path d="M9 11l2 2 4-4"></path>
+                <path d="M12 2l2 4.5L20 8l-3 2.5L18 16l-6-3.5L6 16l1-5.5L4 8l4-1.5L12 2z"></path>
+              </svg>
+            </div>
+            <p><strong>Quality tested seeds</strong></p>
+          </div>
         </div>
-        <div class="feature-card animate-item">
-          <div class="feature-ico">💧</div>
-          <p>Cold pressed & unrefined</p>
+      </div>
+    </section>
+
+    <!-- PRODUCTS -->
+    <section id="products" class="section products">
+      <div class="container">
+        <h2 class="section-title animate-up">Our Cold Pressed Oils</h2>
+        <p class="section-sub animate-item">Handpicked seeds. Traditional pressing. Honest flavour.</p>
+
+        <div class="product-grid" id="productGrid">
+          <!-- Product cards as before -->
+          <div class="product-card">
+            <img src="https://images.unsplash.com/photo-1601050690597-5f54007ff3f6?auto=format&fit=crop&w=800&q=60" alt="Coconut Oil">
+            <div class="card-body">
+              <h3>Coconut Oil</h3>
+              <p class="muted">Unrefined, aromatic — cooking & hair care.</p>
+              <div class="card-actions">
+                <button class="btn btn-secondary" onclick="addToCart('Coconut Oil')">Order Now</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="product-card">
+            <img src="https://images.unsplash.com/photo-1601050690839-356baf2c7b33?auto=format&fit=crop&w=800&q=60" alt="Groundnut Oil">
+            <div class="card-body">
+              <h3>Groundnut Oil</h3>
+              <p class="muted">Light and tasty — ideal for frying & daily use.</p>
+              <div class="card-actions">
+                <button class="btn btn-secondary" onclick="addToCart('Groundnut Oil')">Order Now</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="product-card">
+            <img src="https://images.unsplash.com/photo-1628191014636-3b7e1a7b08df?auto=format&fit=crop&w=800&q=60" alt="Sesame Oil">
+            <div class="card-body">
+              <h3>Sesame Oil</h3>
+              <p class="muted">Nutty flavor, rich nutrients — great for seasoning.</p>
+              <div class="card-actions">
+                <button class="btn btn-secondary" onclick="addToCart('Sesame Oil')">Order Now</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="product-card">
+            <img src="https://media.istockphoto.com/id/1490062930/photo/soy-oil-bottle-and-dried-soybeans.webp?a=1&b=1&s=612x612&w=0&k=20&c=vQQV8h9dUrJQJWpaniCHMDfFj8VBkknejZpPSpn6IfY=" alt="Almond Oil">
+            <div class="card-body">
+              <h3>Almond Oil</h3>
+              <p class="muted">Cold-pressed almond oil — for skin, hair, and health.</p>
+              <div class="card-actions">
+                <button class="btn btn-secondary" onclick="addToCart('Almond Oil')">Order Now</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="product-card">
+            <img src="https://media.istockphoto.com/id/1490062930/photo/soy-oil-bottle-and-dried-soybeans.webp?a=1&b=1&s=612x612&w=0&k=20&c=vQQV8h9dUrJQJWpaniCHMDfFj8VBkknejZpPSpn6IfY=" alt="Mustard Oil">
+            <div class="card-body">
+              <h3>Mustard Oil</h3>
+              <p class="muted">Traditional mustard oil — bold flavour for classic dishes.</p>
+              <div class="card-actions">
+                <button class="btn btn-secondary" onclick="addToCart('Mustard Oil')">Order Now</button>
+              </div>
+            </div>
+          </div>
+
         </div>
-        <div class="feature-card animate-item">
-          <div class="feature-ico">🚚</div>
-          <p>Free home delivery</p>
+
+        <div class="center">
+          <button class="btn btn-primary" onclick="openModal()">Review / Submit Order</button>
         </div>
-        <div class="feature-card animate-item">
-          <div class="feature-ico">✅</div>
-          <p>Quality tested seeds</p>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="section about">
+      <div class="container">
+        <h2 class="section-title animate-up">About Shiva Organics</h2>
+        <div class="about-grid">
+          <div class="about-text animate-item">
+            <p>Shiva Organics began with a promise to bring traditional, pure oils into modern kitchens. We source premium seeds and press them in small batches with care. No chemicals, no shortcuts — just honest oils that nourish.</p>
+          </div>
+          <div class="about-image animate-item">
+            <img src="https://images.pexels.com/photos/4106487/pexels-photo-4106487.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="Traditional pressing">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="section contact">
+      <div class="container">
+        <h2 class="section-title animate-up">Contact & Orders</h2>
+        <p class="section-sub animate-item">Questions or bulk orders? Reach out directly.</p>
+
+        <div class="contact-grid animate-item">
+          <div class="contact-card">
+            <h4>Call / WhatsApp</h4>
+            <p><a href="https://wa.me/919270288488" target="_blank" rel="noopener">+91 92702 88488</a></p>
+          </div>
+          <div class="contact-card">
+            <h4>Email</h4>
+            <p><a href="mailto:shivaorganicsofficial@gmail.com">shivaorganicsofficial@gmail.com</a></p>
+          </div>
+          <div class="contact-card">
+            <h4>Follow</h4>
+            <p><a href="https://instagram.com/shivaorganicsofficial" target="_blank" rel="noopener">@shivaorganicsofficial</a></p>
+          </div>
         </div>
       </div>
     </section>
   </main>
 
   <footer class="site-footer">
-    <p>© 2025 Shiva Organics — Where Purity Meets Tradition</p>
+    <div class="container">
+      <p>© 2025 Shiva Organics — Pure & Natural Cold Pressed Oils</p>
+    </div>
   </footer>
 
   <!-- WhatsApp floating -->
   <a class="whatsapp-float" href="https://wa.me/919270288488" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
-    <img src="images/whatsapp-icon.png" alt="WhatsApp" />
+    <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="WhatsApp">
   </a>
 
-  <script src="js/script.js" defer></script>
+  <!-- Order Modal -->
+  <div id="orderModal" class="modal" aria-hidden="true" role="dialog" aria-labelledby="orderTitle">
+    <div class="modal-dialog">
+      <header class="modal-header">
+        <h3 id="orderTitle">Your Order</h3>
+        <button class="modal-close" onclick="closeModal()" aria-label="Close modal">✕</button>
+      </header>
+
+      <div class="modal-body">
+        <div id="cartItems" class="cart-items">
+          <p class="muted">No items yet. Click "Order Now" on products to add them.</p>
+        </div>
+
+        <div class="add-more">
+          <label for="addProduct">Add another product</label>
+          <select id="addProduct">
+            <option value="">-- choose product --</option>
+            <option>Coconut Oil</option>
+            <option>Groundnut Oil</option>
+            <option>Sesame Oil</option>
+            <option>Almond Oil</option>
+            <option>Mustard Oil</option>
+          </select>
+          <button class="btn btn-secondary" onclick="addSelectedProduct()">Add</button>
+        </div>
+      </div>
+
+      <footer class="modal-footer">
+        <button class="btn btn-primary" onclick="submitOrder()">Submit to WhatsApp</button>
+        <button class="btn btn-outline" onclick="closeModal()">Cancel</button>
+      </footer>
+    </div>
+  </div>
+
+  <!-- JS -->
+  <script src="js/script.js"></script>
 </body>
 </html>

@@ -1,18 +1,15 @@
-/* ---------------------------
-   Shiva Organics - style.css
-   Mobile-first, brand colors & animations
-   --------------------------- */
-
+/* Clean, ordered, premium earthy theme - mobile-first */
 :root{
-  --green: #2e7d32;
-  --green-dark: #1b5e20;
-  --gold: #fdd835;
-  --cream: #fff8e1;
-  --text: #263238;
-  --muted: #5f6b64;
-  --shadow: 0 6px 18px rgba(16, 24, 16, 0.08);
+  --green: #2e6b3b;
+  --gold: #d9a800;
+  --cream: #fbf6ec;
+  --text: #2b2b2b;
+  --muted: #60605f;
+  --card: #ffffff;
+  --shadow: 0 8px 24px rgba(16,24,16,0.08);
   --radius: 12px;
-  --maxwidth: 1200px;
+  --container: 1100px;
+  --wa: #25d366;
 }
 
 *{box-sizing:border-box}
@@ -23,170 +20,119 @@ body{
   background:var(--cream);
   color:var(--text);
   -webkit-font-smoothing:antialiased;
-  -moz-osx-font-smoothing:grayscale;
-  line-height:1.5;
 }
+
+/* Container */
+.container{max-width:var(--container);margin:0 auto;padding:0 16px}
 
 /* Header */
-.site-header{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:12px;
-  padding:12px 16px;
-  background:linear-gradient(180deg,var(--green),var(--green-dark));
-  color:#fff;
-}
-.brand{display:flex;gap:10px;align-items:center}
-.logo{height:44px;width:44px;object-fit:contain;border-radius:8px;background:#fff8}
-.brand-title{font-size:1.05rem;margin:0}
-.brand-sub{font-size:0.78rem;margin:0;opacity:0.95}
+.site-header{position:sticky;top:0;background:linear-gradient(180deg,var(--green),#24522b);color:#fff;z-index:1000}
+.header-inner{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
+.brand{display:flex;align-items:center;gap:12px}
+.logo{width:56px;height:56px;border-radius:8px;object-fit:cover;background:#fff}
+.brand-text h1{font-family:'Playfair Display', serif;margin:0;font-size:1.15rem}
+.brand-text .tag{margin:0;font-size:0.78rem;opacity:0.95}
 
 /* Nav */
-.main-nav{display:flex;align-items:center;gap:10px}
-.nav-link{
-  color:#fff;
-  text-decoration:none;
-  font-weight:600;
-  padding:6px 8px;
-  border-radius:8px;
-  font-size:0.95rem;
-}
-.nav-link.active,
-.nav-link:hover{background:rgba(255,255,255,0.08);border-bottom:3px solid var(--gold)}
-
-/* small-screen nav toggle (JS controls) */
+.main-nav{display:flex;align-items:center;gap:12px}
+.nav-link{color:#fff;text-decoration:none;padding:6px 8px;border-radius:8px;font-weight:600}
+.nav-link.active, .nav-link:hover{background:rgba(255,255,255,0.06);border-bottom:3px solid var(--gold)}
 .nav-toggle{display:none;background:transparent;border:0;color:#fff;font-size:1.2rem}
 
-/* Hero */
-.hero{position:relative;overflow:hidden}
-.hero-bg{
-  width:100%;
-  height:260px;
-  object-fit:cover;
-  display:block;
-  filter:brightness(0.7);
-}
-.hero-panel{
-  position:absolute;
-  left:50%;
-  top:50%;
-  transform:translate(-50%,-50%);
-  padding:18px;
-  border-radius:12px;
-  background:linear-gradient(180deg, rgba(46,125,50,0.85), rgba(46,125,50,0.75));
-  color:#fff;
-  max-width:95%;
-  text-align:center;
-  box-shadow:var(--shadow);
-}
-.hero-title{font-size:1.25rem;margin:0 0 8px}
-.hero-sub{margin:0 0 12px;opacity:0.95}
+/* HERO */
+.hero{padding:36px 0}
+.hero-inner{display:flex;flex-direction:column;gap:18px;align-items:center}
+.hero-copy{text-align:center;max-width:720px}
+.display-title{font-family:'Playfair Display', serif;font-size:1.55rem;margin:0 0 8px;color:#fff}
+.lead{margin:0 0 14px;color:rgba(255,255,255,0.95)}
 .hero-ctas{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+.hero-image img{width:260px;border-radius:14px;box-shadow:var(--shadow);object-fit:cover}
 
 /* Buttons */
-.btn{
-  display:inline-block;
-  text-decoration:none;
-  border-radius:28px;
-  padding:10px 18px;
-  font-weight:700;
-  font-size:0.95rem;
-}
-.btn-solid{background:var(--gold);color:var(--green)}
-.btn-outline{background:transparent;border:2px solid rgba(255,255,255,0.9);color:#fff}
+.btn{display:inline-block;padding:10px 18px;border-radius:999px;text-decoration:none;font-weight:700;cursor:pointer;border:0}
+.btn-primary{background:var(--green);color:#fff}
+.btn-outline{background:transparent;color:#fff;border:2px solid rgba(255,255,255,0.12)}
+.btn-secondary{background:var(--gold);color:#2b2b2b}
 
 /* Sections */
-.section{padding:22px 16px}
-.section-title{font-size:1.05rem;margin:0 0 12px;color:var(--green)}
+.section{padding:28px 0}
+.section-title{font-family:'Playfair Display', serif;font-size:1.1rem;margin:0 0 6px;color:var(--green)}
+.section-sub{color:var(--muted);margin:6px 0 14px}
 
-/* Features */
+/* FEATURE GRID */
 .feature-grid{
   display:grid;
   grid-template-columns:repeat(2,1fr);
-  gap:12px;
+  gap:14px;
+  margin-top:12px;
 }
 .feature-card{
-  background:#fff;
-  border-radius:10px;
-  padding:12px;
-  box-shadow:var(--shadow);
-  display:flex;
-  gap:10px;
-  align-items:center;
-}
-.feature-ico{font-size:1.5rem}
-
-/* Products */
-.products .product-grid{
-  display:grid;
-  grid-template-columns:repeat(2,1fr);
-  gap:12px;
-}
-.product-card{
-  background:#fff;
+  background:var(--card);
   border-radius:12px;
-  overflow:hidden;
+  padding:16px;
   box-shadow:var(--shadow);
-  cursor:pointer;
-  transition:transform .35s cubic-bezier(.2,.9,.3,1), box-shadow .35s;
   display:flex;
-  flex-direction:column;
+  gap:12px;
+  align-items:center;
+  transition:transform .25s ease, box-shadow .25s ease;
 }
-.product-card img{width:100%;height:160px;object-fit:cover;display:block;transition:transform .45s}
-.product-card h3{padding:12px;color:var(--green);margin:0;font-size:1rem}
-.product-card p{padding:0 12px 12px;margin:0;color:var(--muted);font-size:0.9rem}
-.product-card:hover{transform:translateY(-6px);box-shadow:0 12px 30px rgba(16,24,16,0.12)}
-.product-card:hover img{transform:scale(1.06)}
+.feature-card:hover{transform:translateY(-6px)}
+.feature-ico{width:48px;height:48px;display:flex;align-items:center;justify-content:center}
 
-/* About / Contact */
-.about-panel, .contact-info{
-  background:#fff;padding:14px;border-radius:12px;box-shadow:var(--shadow)
-}
-.contact-grid{display:grid;gap:12px}
-.order-form{display:flex;flex-direction:column;gap:8px}
-.order-form input, .order-form select, .order-form textarea{
-  padding:10px;border-radius:8px;border:1px solid #dcdcdc;font-size:0.95rem
-}
-.order-form label{font-weight:600;font-size:0.9rem}
-#sendOrderBtn{background:var(--green);color:#fff;border:0;padding:10px;border-radius:28px;font-weight:700}
+/* PRODUCTS */
+.product-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:12px}
+.product-card{background:var(--card);border-radius:12px;overflow:hidden;box-shadow:var(--shadow);display:flex;flex-direction:column}
+.product-card img{width:100%;height:160px;object-fit:cover}
+.card-body{padding:12px;display:flex;flex-direction:column;gap:8px;flex:1}
+.muted{color:var(--muted);font-size:0.95rem}
+.card-actions{margin-top:auto;display:flex;gap:8px}
 
-/* Footer */
-.site-footer{padding:14px;text-align:center;color:#fff;background:linear-gradient(180deg,var(--green-dark),var(--green));margin-top:18px}
+/* center helper */
+.center{text-align:center;margin-top:16px}
 
-/* WhatsApp Floating */
-.whatsapp-float{
-  position:fixed;right:16px;bottom:16px;background:#25d366;border-radius:50%;padding:10px;box-shadow:0 8px 22px rgba(37,211,102,0.18);
-  display:inline-flex;align-items:center;justify-content:center;z-index:1200;animation:float 2.8s ease-in-out infinite;
-}
-.whatsapp-float img{width:44px;height:44px;display:block}
+/* ABOUT */
+.about-grid{display:grid;grid-template-columns:1fr;gap:12px;align-items:center}
+.about-image img{width:100%;border-radius:10px;box-shadow:var(--shadow);object-fit:cover}
 
-/* -------------------------
-   Animations
-   ------------------------- */
-@keyframes fadeUp { from { opacity:0; transform: translateY(18px); } to { opacity:1; transform: translateY(0);} }
-@keyframes float { 0%{ transform:translateY(0)}50%{ transform:translateY(-6px)}100%{ transform:translateY(0)} }
+/* CONTACT */
+.contact-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.contact-card{background:#fff;padding:12px;border-radius:10px;box-shadow:var(--shadow);text-align:center}
 
-/* utility animate classes (JS toggles) */
-.animate-up{opacity:0;transform:translateY(16px);will-change:transform,opacity}
-.animate-item{opacity:0;transform:translateY(14px)}
-.in-view{ animation: fadeUp .6s ease forwards }
+/* FOOTER */
+.site-footer{background:linear-gradient(180deg,#24522b,var(--green));color:#fff;padding:18px 0;text-align:center;margin-top:18px}
 
-/* Responsive: tablets & up */
+/* WhatsApp */
+.whatsapp-float{position:fixed;right:16px;bottom:16px;background:var(--wa);padding:10px;border-radius:50%;box-shadow:0 12px 30px rgba(37,211,102,0.12)}
+.whatsapp-float img{width:40px;height:40px;display:block}
+
+/* Modal */
+.modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.45);align-items:center;justify-content:center;padding:20px;z-index:2000}
+.modal-dialog{background:#fff;border-radius:12px;max-width:520px;width:100%;box-shadow:var(--shadow);overflow:hidden}
+.modal-header{display:flex;align-items:center;justify-content:space-between;padding:14px 18px;border-bottom:1px solid #f1f1f1}
+.modal-body{padding:14px 18px;max-height:60vh;overflow:auto}
+.modal-footer{display:flex;gap:10px;justify-content:flex-end;padding:12px 18px;border-top:1px solid #f1f1f1}
+.modal-close{background:transparent;border:0;font-size:18px;cursor:pointer}
+
+/* Cart items */
+.cart-item{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:8px 0;border-bottom:1px dashed #eee}
+.cart-item .left{display:flex;gap:12px;align-items:center}
+.cart-item img{width:56px;height:56px;object-fit:cover;border-radius:8px}
+.qty-controls{display:flex;gap:6px;align-items:center}
+.qty-controls button{width:30px;height:30px;border-radius:6px;border:1px solid #ddd;background:#fff;cursor:pointer}
+
+/* Add more select */
+.add-more{display:flex;gap:8px;align-items:center;margin-top:12px}
+
+/* Animations */
+.animate-up{opacity:0;transform:translateY(10px);will-change:transform,opacity}
+.animate-item{opacity:0;transform:translateY(8px)}
+.in-view{animation:fadeUp .55s ease forwards}
+@keyframes fadeUp{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+
+/* Responsive */
 @media(min-width:720px){
-  .site-header{padding:14px 28px}
-  .brand-title{font-size:1.2rem}
-  .hero-bg{height:360px}
-  .hero-panel{padding:24px}
+  .hero-inner{flex-direction:row;align-items:center;justify-content:space-between}
+  .product-grid{grid-template-columns:repeat(3,1fr)}
+  .about-grid{grid-template-columns:1fr 1fr}
   .feature-grid{grid-template-columns:repeat(4,1fr)}
-  .products .product-grid{grid-template-columns:repeat(3,1fr)}
-  .contact-grid{grid-template-columns:1fr 1fr}
-  .nav-toggle{display:none}
-}
-
-/* Desktop */
-@media(min-width:1100px){
-  .products .product-grid{grid-template-columns:repeat(4,1fr)}
-  .hero-title{font-size:1.6rem}
-  .nav-toggle{display:none}
 }
