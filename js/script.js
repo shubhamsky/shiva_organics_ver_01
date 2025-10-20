@@ -65,12 +65,12 @@ const cart = {}; // { productName: {qty:number, img:string} }
 
 // same images map used for cards
 const images = {
-  'Coconut Oil': 'images/mustard_oil_product.png',
-  'Groundnut Oil': 'images/mustard_oil_product.png',
-  'Sesame Oil': 'images/mustard_oil_product.png',
-  'Almond Oil': 'images/mustard_oil_product.png',
-  'Mustard Oil': 'images/mustard_oil_product.png',
-  'Sunflower Oil': 'images/sunfloweroil_img.png',
+  'Coconut Oil': 'images/products/coconut_oil.jpg',
+  'Groundnut Oil': 'images/products/groundnut_oil.jpg',
+  'Sesame Oil': 'images/products/sesame_oil.jpg',
+  'Almond Oil': 'images/products/almond_oil.jpg',
+  'Mustard Oil': 'images/products/mustard_oil.jpg',
+  'Sunflower Oil': 'images/products/sunfloweroil_img.png',
 };
 
 function addToCart(product) {
