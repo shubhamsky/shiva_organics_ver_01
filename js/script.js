@@ -69,7 +69,8 @@ const images = {
   'Groundnut Oil': 'images/mustard_oil_product.png',
   'Sesame Oil': 'images/mustard_oil_product.png',
   'Almond Oil': 'images/mustard_oil_product.png',
-  'Mustard Oil': 'images/mustard_oil_product.png'
+  'Mustard Oil': 'images/mustard_oil_product.png',
+  'Sunflower Oil': 'images/sunfloweroil_img.png',
 };
 
 function addToCart(product) {
