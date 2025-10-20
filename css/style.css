@@ -201,6 +201,11 @@ position: relative;
               box-shadow:var(--shadow);
               text-align:center
               }
+@media (max-width: 600px) {
+  .contact-card{ 
+    width: 100%; 
+  }
+}
 
 /* FOOTER */
 .site-footer{background:linear-gradient(180deg,#24522b,var(--green));color:#fff;padding:18px 0;text-align:center;margin-top:18px}
