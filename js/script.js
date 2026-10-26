@@ -71,6 +71,11 @@ const images = {
   'Almond Oil': 'images/products/almond_oil.jpg',
   'Mustard Oil': 'images/products/mustard_oil.jpg',
   'Sunflower Oil': 'images/products/sunfloweroil_img.png',
+  'A2 Cow Ghee': 'images/products/prod_a2_ghee.jpeg',
+};
+
+const quantityUnits = {
+  'A2 Cow Ghee': 'jar',
 };
 
 function addToCart(product) {
@@ -113,7 +118,7 @@ function renderCart() {
         <img src="${item.img}" alt="${product}">
         <div>
           <strong>${product}</strong>
-          <div class="muted" style="font-size:0.9rem">Quantity: <span id="qty-${escapeId(product)}">${item.qty}</span> L</div>
+          <div class="muted" style="font-size:0.9rem">Quantity: <span id="qty-${escapeId(product)}">${item.qty}</span> ${quantityUnits[product] || 'L'}${item.qty === 1 ? '' : 's'}</div>
         </div>
       </div>
       <div class="qty-controls">
@@ -160,7 +165,8 @@ function submitOrder() {
   let message = 'Hello Shiva Organics! I would like to order:%0A';
   items.forEach(p => {
     const qty = cart[p].qty;
-    message += `- ${encodeURIComponent(p)}: ${encodeURIComponent(qty)} L%0A`;
+    const unit = quantityUnits[p] || 'L';
+    message += `- ${encodeURIComponent(p)}: ${encodeURIComponent(qty)} ${encodeURIComponent(unit + (qty === 1 ? '' : 's'))}%0A`;
   });
   // open WhatsApp
   window.open(`https://wa.me/${WA_NUMBER}?text=${message}`, '_blank');
