@@ -3,13 +3,13 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Shivora Organics | Pure Cold Pressed Oils</title>
-  <meta name="description" content="Small-batch, traditionally pressed cold pressed oils and A2 cow ghee from Shivora Organics. 100% natural, chemical-free, with free home delivery.">
+  <title>Shivora Organics | Pure Cold Pressed Oils & A2 Ghee</title>
+  <meta name="description" content="100% Cold Pressed, Traditional Wooden Pressed Oils and A2 Cow Ghee from Shivora Organics. No chemicals, no preservatives, healthy for daily cooking.">
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
   <!-- CSS -->
   <link rel="stylesheet" href="css/style.css" />
@@ -22,19 +22,31 @@
         <img src="images/site_logo.png" alt="Shivora Organics" class="logo">
         <div class="brand-text">
           <h1>Shivora Organics</h1>
-          <p class="tag">Pure • Natural • Cold Pressed</p>
+          <p class="tag">Where Purity Meets Tradition</p>
         </div>
       </a>
-
-      <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">☰</button>
 
       <nav class="main-nav" aria-label="Main navigation">
         <a href="#home" class="nav-link active">Home</a>
         <a href="#features" class="nav-link">Why Us</a>
-        <a href="#products" class="nav-link">Products</a>
+        <a href="#products" class="nav-link">Shop</a>
         <a href="#about" class="nav-link">About</a>
         <a href="#contact" class="nav-link">Contact</a>
       </nav>
+
+      <div class="header-actions">
+        <button class="cart-btn" onclick="openCartDrawer()" aria-label="Open shopping cart">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="9" cy="21" r="1"></circle>
+            <circle cx="20" cy="21" r="1"></circle>
+            <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+          </svg>
+          <span class="cart-btn-label">Cart</span>
+          <span class="cart-badge" id="cartBadge">0</span>
+        </button>
+
+        <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">☰</button>
+      </div>
     </div>
   </header>
 
@@ -43,21 +55,22 @@
     <section id="home" class="hero">
       <div class="hero-inner container">
         <div class="hero-copy animate-up">
-          <h2 class="display-title">Nature's Goodness, Cold Pressed Oils</h2>
-          <p class="lead">Small-batch, traditionally pressed oils — no additives, no compromise.</p>
+          <span class="hero-pill">100% Traditional Wooden Pressed</span>
+          <h2 class="display-title">Nature's Goodness, Pure Cold Pressed Oils &amp; Ghee</h2>
+          <p class="lead">Small-batch, chemical-free oils extracted at low temperatures — preserving natural aroma, nutrients, and authentic taste.</p>
           <div class="hero-ctas">
-            <a href="#products" class="btn btn-primary">Our Products</a>
-            <a href="https://wa.me/919270288488?text=Hello%2C%20I%20want%20to%20know%20more%21" class="btn btn-primary" target="_blank" rel="noopener">Order on WhatsApp</a>
+            <a href="#products" class="btn btn-primary">Shop Products</a>
+            <a href="https://wa.me/919270288488?text=Hello%20Shivora%20Organics%2C%20I%20want%20to%20know%20more%20about%20your%20cold%20pressed%20oils%20and%20ghee." class="btn btn-gold" target="_blank" rel="noopener">Chat on WhatsApp</a>
           </div>
         </div>
 
         <div class="hero-image animate-item">
-          <img src="images/shiva_organics_hero_01.png" alt="Cold pressed oil bottles">
+          <img src="images/shiva_organics_hero_01.png" alt="Shivora Organics Cold Pressed Oil Bottles">
         </div>
       </div>
     </section>
 
-    <!-- FEATURES -->
+    <!-- TRUST HIGHLIGHTS -->
     <section id="features" class="section features">
       <div class="container">
         <h3 class="section-title animate-up">Why Shivora Organics?</h3>
@@ -65,151 +78,71 @@
         <div class="feature-grid">
           <div class="feature-card animate-item">
             <div class="feature-ico" aria-hidden="true">
-              <svg viewBox="0 0 64 64" width="40" height="40">
-                <path fill="#aad15d" d="M64 8c-4.36 1.75-12.36 9.75-19.97 18.91-9.29 6.79-15.53 20.02-19.17 28.61a99.8 99.8 0 0 1-.72-3.05 68.8 68.8 0 0 1-.64-3.23c-1.32-7.58-.78-12.45.96-16.58 1.14-2.72 2.8-5.13 4.78-7.78C35.14 16.97 55.39 7.16 64 8z"/>
-                <path fill="#90b74b" d="M64 8c-15.46 12.65.92 40.93-37 48.05 4.16-8.27 9.3-18.82 16.99-29.08l.04-.06C51.64 17.75 59.64 9.75 64 8z"/>
-                <path fill="#aad15d" d="M22.24 32.66c-1.73 4.13-2.27 9-.96 16.58.18 1.02.39 2.1.64 3.23-11.01-1.5-13.98-4.93-17.61-10.44C.31 35.94-1.41 19.42 1.34 13.65c3.21 9.15 14.72 10.89 20.9 19.01z"/>
-                <path fill="#90b74b" d="M21.28 49.24C13.59 40.68 1.56 20.09 1.34 13.65c3.21 9.15 14.72 10.89 20.9 19.01-1.73 4.13-2.27 9-.96 16.58z"/>
-              </svg>
-            </div>
-            <p><strong>100% Natural &amp; Chemical-free</strong></p>
-          </div>
-
-          <div class="feature-card animate-item">
-            <div class="feature-ico" aria-hidden="true">
-              <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+              <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M12 2s6 6 6 10a6 6 0 1 1-12 0C6 8 12 2 12 2z"/>
               </svg>
             </div>
-            <p><strong>Cold pressed &amp; unrefined</strong></p>
+            <div>
+              <strong>100% Cold Pressed</strong>
+              <p class="feature-sub">Traditional wooden extraction</p>
+            </div>
           </div>
 
           <div class="feature-card animate-item">
             <div class="feature-ico" aria-hidden="true">
-              <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+              <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/>
+                <path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/>
+              </svg>
+            </div>
+            <div>
+              <strong>No Chemicals &amp; Preservatives</strong>
+              <p class="feature-sub">Unrefined &amp; pure seeds</p>
+            </div>
+          </div>
+
+          <div class="feature-card animate-item">
+            <div class="feature-ico" aria-hidden="true">
+              <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/>
+              </svg>
+            </div>
+            <div>
+              <strong>Heart &amp; Diabetes Friendly</strong>
+              <p class="feature-sub">Safe for kids &amp; daily cooking</p>
+            </div>
+          </div>
+
+          <div class="feature-card animate-item">
+            <div class="feature-ico" aria-hidden="true">
+              <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
                 <rect x="1" y="3" width="15" height="13" rx="2"></rect>
                 <path d="M16 8h5l2 3v5"></path>
                 <circle cx="5.5" cy="18.5" r="1.5"></circle>
                 <circle cx="18.5" cy="18.5" r="1.5"></circle>
               </svg>
             </div>
-            <p><strong>Free home delivery</strong></p>
-          </div>
-
-          <div class="feature-card animate-item">
-            <div class="feature-ico" aria-hidden="true">
-              <svg width="40" height="40" viewBox="0 0 130 130">
-                <path fill="#2e6b3b" d="M64 .3C28.7.3 0 28.8 0 64s28.7 63.7 64 63.7 64-28.5 64-63.7S99.3.3 64 .3zm0 121C32.2 121.3 6.4 95.7 6.4 64 6.4 32.3 32.2 6.7 64 6.7s57.6 25.7 57.6 57.3c0 31.7-25.8 57.3-57.6 57.3zm23.2-76.8c-.9-.9-2.3-.9-3.2 0L55.2 73.2 41.4 59.5c-.9-.9-2.3-.9-3.2 0l-4.8 4.8c-.9.9-.9 2.3 0 3.2l15.3 15.3 3.3 3.3.8.8.7.7c.9.9 2.3.9 3.2 0L92 52.5c.9-.9.9-2.3 0-3.2l-4.8-4.8z"/>
-              </svg>
+            <div>
+              <strong>Free Home Delivery</strong>
+              <p class="feature-sub">Freshly packed to your door</p>
             </div>
-            <p><strong>Quality tested seeds</strong></p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- PRODUCTS -->
+    <!-- SHOP / PRODUCTS -->
     <section id="products" class="section products">
       <div class="container">
-        <h2 class="section-title animate-up">Our Cold Pressed Oils</h2>
-        <p class="section-sub animate-item">Handpicked seeds. Traditional pressing. Honest flavour. Click any product for details.</p>
-
-        <div class="product-grid" id="productGrid">
-          <div class="product-card">
-            <div class="product-thumb">
-              <img src="images/products/coconut_oil.jpg" alt="Coconut Oil" loading="lazy">
-            </div>
-            <div class="card-body">
-              <h3>Coconut Oil</h3>
-              <p class="muted">Unrefined, aromatic — cooking &amp; hair care.</p>
-              <div class="card-actions">
-                <button class="btn btn-secondary" onclick="addToCart('Coconut Oil')">Order Now</button>
-              </div>
-            </div>
-          </div>
-
-          <div class="product-card">
-            <div class="product-thumb">
-              <img src="images/products/prod_grndnut_1l_oil.jpeg" alt="Groundnut Oil" loading="lazy">
-            </div>
-            <div class="card-body">
-              <h3>Groundnut Oil</h3>
-              <p class="muted">Light and tasty — ideal for frying &amp; daily use.</p>
-              <div class="card-actions">
-                <button class="btn btn-secondary" onclick="addToCart('Groundnut Oil')">Order Now</button>
-              </div>
-            </div>
-          </div>
-
-          <div class="product-card">
-            <div class="product-thumb">
-              <img src="images/products/prod_sesame_1l_oil.jpeg" alt="Sesame Oil" loading="lazy">
-            </div>
-            <div class="card-body">
-              <h3>Sesame Oil</h3>
-              <p class="muted">Nutty flavor, rich nutrients — great for seasoning.</p>
-              <div class="card-actions">
-                <button class="btn btn-secondary" onclick="addToCart('Sesame Oil')">Order Now</button>
-              </div>
-            </div>
-          </div>
-
-          <div class="product-card">
-            <div class="product-thumb">
-              <img src="images/products/almond_oil.jpg" alt="Almond Oil" loading="lazy">
-            </div>
-            <div class="card-body">
-              <h3>Almond Oil</h3>
-              <p class="muted">Cold-pressed almond oil — for skin, hair, and health.</p>
-              <div class="card-actions">
-                <button class="btn btn-secondary" onclick="addToCart('Almond Oil')">Order Now</button>
-              </div>
-            </div>
-          </div>
-
-          <div class="product-card">
-            <div class="product-thumb">
-              <img src="images/products/prod_mustard_1l_oil.jpeg" alt="Mustard Oil" loading="lazy">
-            </div>
-            <div class="card-body">
-              <h3>Mustard Oil</h3>
-              <p class="muted">Traditional mustard oil — bold flavour for classic dishes.</p>
-              <div class="card-actions">
-                <button class="btn btn-secondary" onclick="addToCart('Mustard Oil')">Order Now</button>
-              </div>
-            </div>
-          </div>
-
-          <div class="product-card">
-            <div class="product-thumb">
-              <img src="images/products/sunfloweroil_img.png" alt="Sunflower Oil" loading="lazy">
-            </div>
-            <div class="card-body">
-              <h3>Sunflower Oil</h3>
-              <p class="muted">Traditional Sunflower oil — good for heart.</p>
-              <div class="card-actions">
-                <button class="btn btn-secondary" onclick="addToCart('Sunflower Oil')">Order Now</button>
-              </div>
-            </div>
-          </div>
-
-          <div class="product-card">
-            <div class="product-thumb">
-              <img src="images/products/prod_a2_ghee.jpeg" alt="A2 Desi Cow Ghee" loading="lazy">
-            </div>
-            <div class="card-body">
-              <h3>A2 Cow Ghee</h3>
-              <p class="muted">Traditional A2 desi cow ghee in a 500 ml jar.</p>
-              <div class="card-actions">
-                <button class="btn btn-secondary" onclick="addToCart('A2 Cow Ghee')">Order Now</button>
-              </div>
-            </div>
+        <div class="section-head">
+          <div>
+            <h2 class="section-title animate-up">Our Pure Oils &amp; A2 Ghee</h2>
+            <p class="section-sub animate-item">Select your pack size (Half Litre, 1 Litre, or 5 Litres) or click any product to open its full page.</p>
           </div>
         </div>
 
-        <div class="center">
-          <button class="btn btn-primary" onclick="openModal()">Review / Submit Order</button>
-        </div>
+        <!-- Rendered dynamically from CATALOG in js/script.js -->
+        <div class="product-grid" id="productGrid"></div>
       </div>
     </section>
 
@@ -219,10 +152,10 @@
         <h2 class="section-title animate-up">About Shivora Organics</h2>
         <div class="about-grid">
           <div class="about-text animate-item">
-            <p>Shivora Organics began with a promise to bring traditional, pure oils into modern kitchens. We source premium seeds and press them in small batches with care. No chemicals, no shortcuts — just honest oils that nourish.</p>
+            <p>Shivora Organics began with a promise to bring traditional, pure oils and Bilona A2 ghee into modern kitchens. We source premium seeds and press them in small wooden batches with care. No chemicals, no preservatives, no shortcuts — just honest food that nourishes your family every day.</p>
           </div>
           <div class="about-image animate-item">
-            <img src="images/about_us_new.jpg" alt="Traditional pressing" loading="lazy">
+            <img src="images/about_us_new.jpg" alt="Traditional wooden cold pressing" loading="lazy">
           </div>
         </div>
       </div>
@@ -231,8 +164,8 @@
     <!-- CONTACT -->
     <section id="contact" class="section contact">
       <div class="container">
-        <h2 class="section-title animate-up">Contact &amp; Orders</h2>
-        <p class="section-sub animate-item">Questions or bulk orders? Reach out directly.</p>
+        <h2 class="section-title animate-up">Contact &amp; Bulk Orders</h2>
+        <p class="section-sub animate-item">Have questions or need a custom order? Reach out directly.</p>
 
         <div class="contact-section animate-item">
           <div class="contact-card">
@@ -254,76 +187,65 @@
 
   <footer class="site-footer">
     <div class="container">
-      <p>© 2026 Shivora Organics — Pure &amp; Natural Cold Pressed Oils</p>
+      <p>© 2026 Shivora Organics — Where Purity Meets Tradition</p>
     </div>
   </footer>
 
-  <!-- WhatsApp floating -->
+  <!-- Slide-Over Shopping Cart Drawer -->
+  <div id="cartOverlay" class="cart-overlay" onclick="closeCartDrawer()"></div>
+  <aside id="cartDrawer" class="cart-drawer" aria-hidden="true" aria-label="Shopping Cart">
+    <header class="drawer-header">
+      <h3>Your Shopping Cart</h3>
+      <button class="modal-close" onclick="closeCartDrawer()" aria-label="Close cart">✕</button>
+    </header>
+
+    <div class="drawer-body">
+      <div id="cartItemsList" class="cart-items"></div>
+
+      <div id="checkoutDetails" class="checkout-box" style="display: none;">
+        <h4>Delivery Details</h4>
+        <div class="form-group">
+          <label for="custName">Your Name *</label>
+          <input type="text" id="custName" placeholder="Enter your full name">
+        </div>
+        <div class="form-group">
+          <label for="custAddress">Delivery Address &amp; Pincode *</label>
+          <textarea id="custAddress" rows="2" placeholder="House/Flat No., Building, Area, City, Pincode"></textarea>
+        </div>
+        <div class="form-group">
+          <label for="custPayment">Payment Mode</label>
+          <select id="custPayment">
+            <option value="UPI / Online on Delivery">UPI / Online on Delivery</option>
+            <option value="Cash on Delivery (COD)">Cash on Delivery (COD)</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <footer class="drawer-footer">
+      <div class="cart-summary">
+        <div class="summary-row">
+          <span>Delivery</span>
+          <span class="free-tag">FREE</span>
+        </div>
+        <div class="summary-row total-row">
+          <span>Total Amount</span>
+          <strong id="cartSubtotal">₹0</strong>
+        </div>
+      </div>
+      <button class="btn btn-primary btn-block" onclick="submitWhatsAppOrder()">
+        Proceed to WhatsApp Order
+      </button>
+    </footer>
+  </aside>
+
+  <!-- Toast Notification -->
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+  <!-- WhatsApp Floating Button -->
   <a class="whatsapp-float" href="https://wa.me/919270288488?text=Hello%2C%20I%20want%20to%20know%20more%21" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
     <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="WhatsApp">
   </a>
-
-  <!-- Order Modal -->
-  <div id="orderModal" class="modal" aria-hidden="true" role="dialog" aria-labelledby="orderTitle">
-    <div class="modal-dialog">
-      <header class="modal-header">
-        <h3 id="orderTitle">Your Order</h3>
-        <button class="modal-close" onclick="closeModal()" aria-label="Close modal">✕</button>
-      </header>
-
-      <div class="modal-body">
-        <div id="cartItems" class="cart-items">
-          <p class="muted">No items yet. Click "Order Now" on products to add them.</p>
-        </div>
-
-        <div class="add-more">
-          <label for="addProduct">Add another product</label>
-          <select id="addProduct">
-            <option value="">-- choose product --</option>
-            <option>Coconut Oil</option>
-            <option>Groundnut Oil</option>
-            <option>Sesame Oil</option>
-            <option>Almond Oil</option>
-            <option>Mustard Oil</option>
-            <option>Sunflower Oil</option>
-            <option>A2 Cow Ghee</option>
-          </select>
-          <button class="btn btn-secondary" onclick="addSelectedProduct()">Add</button>
-        </div>
-      </div>
-
-      <footer class="modal-footer">
-        <button class="btn btn-primary" onclick="submitOrder()">Submit to WhatsApp</button>
-        <button class="btn btn-ghost" onclick="closeModal()">Cancel</button>
-      </footer>
-    </div>
-  </div>
-
-  <!-- Product Details Modal -->
-  <div id="productModal" class="modal" aria-hidden="true" role="dialog" aria-labelledby="detailTitle">
-    <div class="modal-dialog">
-      <header class="modal-header">
-        <h3 id="detailTitle">Product Details</h3>
-        <button class="modal-close" onclick="closeProductModal()" aria-label="Close modal">✕</button>
-      </header>
-
-      <div class="modal-body detail-body">
-        <div class="detail-img-wrap">
-          <img id="detailImg" src="" alt="">
-        </div>
-        <div class="detail-info">
-          <p id="detailDesc" class="muted"></p>
-          <ul id="detailHighlights" class="detail-list"></ul>
-          <p class="detail-sizes"><strong>Available Packs:</strong> <span id="detailSizes"></span></p>
-        </div>
-      </div>
-
-      <footer class="modal-footer">
-        <button id="detailOrderBtn" class="btn btn-secondary">Add to Order</button>
-        <button class="btn btn-ghost" onclick="closeProductModal()">Close</button>
-      </footer>
-    </div>
-  </div>
 
   <!-- JS -->
   <script src="js/script.js"></script>
