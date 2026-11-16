@@ -112,7 +112,7 @@
     <section id="products" class="section products">
       <div class="container">
         <h2 class="section-title animate-up">Our Cold Pressed Oils</h2>
-        <p class="section-sub animate-item">Handpicked seeds. Traditional pressing. Honest flavour.</p>
+        <p class="section-sub animate-item">Handpicked seeds. Traditional pressing. Honest flavour. Click any product for details.</p>
 
         <div class="product-grid" id="productGrid">
           <div class="product-card">
@@ -295,6 +295,32 @@
       <footer class="modal-footer">
         <button class="btn btn-primary" onclick="submitOrder()">Submit to WhatsApp</button>
         <button class="btn btn-ghost" onclick="closeModal()">Cancel</button>
+      </footer>
+    </div>
+  </div>
+
+  <!-- Product Details Modal -->
+  <div id="productModal" class="modal" aria-hidden="true" role="dialog" aria-labelledby="detailTitle">
+    <div class="modal-dialog">
+      <header class="modal-header">
+        <h3 id="detailTitle">Product Details</h3>
+        <button class="modal-close" onclick="closeProductModal()" aria-label="Close modal">✕</button>
+      </header>
+
+      <div class="modal-body detail-body">
+        <div class="detail-img-wrap">
+          <img id="detailImg" src="" alt="">
+        </div>
+        <div class="detail-info">
+          <p id="detailDesc" class="muted"></p>
+          <ul id="detailHighlights" class="detail-list"></ul>
+          <p class="detail-sizes"><strong>Available Packs:</strong> <span id="detailSizes"></span></p>
+        </div>
+      </div>
+
+      <footer class="modal-footer">
+        <button id="detailOrderBtn" class="btn btn-secondary">Add to Order</button>
+        <button class="btn btn-ghost" onclick="closeProductModal()">Close</button>
       </footer>
     </div>
   </div>
