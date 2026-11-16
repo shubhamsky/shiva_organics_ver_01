@@ -1,175 +1,146 @@
-/* Shiva Organics SPA interactions:
-   - Cart modal add/remove/qty
-   - Smooth scroll + active nav
-   - IntersectionObserver for animate-up/item classes
-*/
+// Product image map for cart previews
+const PRODUCT_IMAGES = {
+  "Coconut Oil": "images/products/coconut_oil.jpg",
+  "Groundnut Oil": "images/products/prod_grndnut_1l_oil.jpeg",
+  "Sesame Oil": "images/products/prod_sesame_1l_oil.jpeg",
+  "Almond Oil": "images/products/almond_oil.jpg",
+  "Mustard Oil": "images/products/prod_mustard_1l_oil.jpeg",
+  "Sunflower Oil": "images/products/sunfloweroil_img.png",
+  "A2 Cow Ghee": "images/products/prod_a2_ghee.jpeg"
+};
 
-const WA_NUMBER = '919270288488';
+const WHATSAPP_NUMBER = "919270288488";
+const cart = {};
 
-// DOM ready
-document.addEventListener('DOMContentLoaded', () => {
-  // Nav links smooth scroll
-  document.querySelectorAll('.main-nav a').forEach(link => {
-    link.addEventListener('click', (e) => {
-      // anchor links handled smoothly
-      const href = link.getAttribute('href');
-      if (href && href.startsWith('#')) {
-        e.preventDefault();
-        const target = document.querySelector(href);
-        if (!target) return;
-        const offset = document.querySelector('.site-header').offsetHeight;
-        const top = target.offsetTop - offset + 4;
-        window.scrollTo({ top, behavior: 'smooth' });
-      }
-    });
+// Mobile Nav Toggle
+const navToggle = document.querySelector(".nav-toggle");
+const mainNav = document.querySelector(".main-nav");
+
+if (navToggle && mainNav) {
+  navToggle.addEventListener("click", () => {
+    const isOpen = mainNav.classList.toggle("open");
+    navToggle.setAttribute("aria-expanded", isOpen);
   });
 
-  // Mobile nav toggle
-  const toggle = document.querySelector('.nav-toggle');
-  const nav = document.querySelector('.main-nav');
-  if (toggle) toggle.addEventListener('click', () => nav.classList.toggle('open'));
-
-  // IntersectionObserver for animations
-  const obs = new IntersectionObserver((entries, o) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('in-view');
-        o.unobserve(entry.target);
-      }
+  mainNav.querySelectorAll(".nav-link").forEach((link) => {
+    link.addEventListener("click", () => {
+      mainNav.classList.remove("open");
+      navToggle.setAttribute("aria-expanded", "false");
     });
-  }, {threshold: 0.12});
-
-  document.querySelectorAll('.animate-up, .animate-item').forEach((el, i) => {
-    el.style.animationDelay = `${i * 70}ms`;
-    obs.observe(el);
   });
+}
 
-  // Scrollspy: highlight nav based on section
-  const sections = document.querySelectorAll('main section');
-  const navLinks = document.querySelectorAll('.main-nav a');
+// Active Nav Highlight on Scroll
+const sections = document.querySelectorAll("section[id]");
+const navLinks = document.querySelectorAll(".nav-link");
 
-  window.addEventListener('scroll', () => {
-    let current = '';
-    sections.forEach(sec => {
-      const top = sec.offsetTop - (document.querySelector('.site-header').offsetHeight + 120);
-      if (pageYOffset >= top) current = sec.getAttribute('id');
-    });
-    navLinks.forEach(link => {
-      link.classList.toggle('active', link.getAttribute('href') === '#' + current);
-    });
+window.addEventListener("scroll", () => {
+  let current = "";
+  sections.forEach((sec) => {
+    if (window.scrollY >= sec.offsetTop - 140) {
+      current = sec.getAttribute("id");
+    }
+  });
+  navLinks.forEach((link) => {
+    link.classList.toggle("active", link.getAttribute("href") === `#${current}`);
   });
 });
 
-/* ---------- CART & MODAL ---------- */
-const cart = {}; // { productName: {qty:number, img:string} }
+// Scroll Reveal Animations
+const observer = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("in-view");
+        observer.unobserve(entry.target);
+      }
+    });
+  },
+  { threshold: 0.12 }
+);
 
-// same images map used for cards
-const images = {
-  'Coconut Oil': 'images/products/coconut_oil.jpg',
-  'Groundnut Oil': 'images/products/groundnut_oil.jpg',
-  'Sesame Oil': 'images/products/sesame_oil.jpg',
-  'Almond Oil': 'images/products/almond_oil.jpg',
-  'Mustard Oil': 'images/products/mustard_oil.jpg',
-  'Sunflower Oil': 'images/products/sunfloweroil_img.png',
-  'A2 Cow Ghee': 'images/products/prod_a2_ghee.jpeg',
-};
+document.querySelectorAll(".animate-up, .animate-item").forEach((el) => observer.observe(el));
 
-const quantityUnits = {
-  'A2 Cow Ghee': 'jar',
-};
-
-function addToCart(product) {
-  if (!cart[product]) cart[product] = { qty: 1, img: images[product] || '' };
-  else cart[product].qty += 1;
+// Cart & Modal Functions
+function addToCart(productName) {
+  cart[productName] = (cart[productName] || 0) + 1;
+  renderCart();
   openModal();
-  renderCart();
 }
 
-function openModal() {
-  const modal = document.getElementById('orderModal');
-  if (!modal) return;
-  modal.style.display = 'flex';
-  modal.setAttribute('aria-hidden', 'false');
-  renderCart();
+function addSelectedProduct() {
+  const select = document.getElementById("addProduct");
+  if (!select || !select.value) return;
+  addToCart(select.value);
+  select.value = "";
 }
 
-function closeModal() {
-  const modal = document.getElementById('orderModal');
-  if (!modal) return;
-  modal.style.display = 'none';
-  modal.setAttribute('aria-hidden', 'true');
+function updateQty(productName, delta) {
+  if (!cart[productName]) return;
+  cart[productName] += delta;
+  if (cart[productName] <= 0) {
+    delete cart[productName];
+  }
+  renderCart();
 }
 
 function renderCart() {
-  const container = document.getElementById('cartItems');
-  container.innerHTML = '';
-  const keys = Object.keys(cart);
-  if (keys.length === 0) {
+  const container = document.getElementById("cartItems");
+  if (!container) return;
+
+  const items = Object.keys(cart);
+  if (items.length === 0) {
     container.innerHTML = '<p class="muted">No items yet. Click "Order Now" on products to add them.</p>';
     return;
   }
 
-  keys.forEach(product => {
-    const item = cart[product];
-    const div = document.createElement('div');
-    div.className = 'cart-item';
-    div.innerHTML = `
-      <div class="left">
-        <img src="${item.img}" alt="${product}">
-        <div>
-          <strong>${product}</strong>
-          <div class="muted" style="font-size:0.9rem">Quantity: <span id="qty-${escapeId(product)}">${item.qty}</span> ${quantityUnits[product] || 'L'}${item.qty === 1 ? '' : 's'}</div>
+  container.innerHTML = items
+    .map(
+      (name) => `
+      <div class="cart-item">
+        <div class="left">
+          <img src="${PRODUCT_IMAGES[name] || "images/site_logo.png"}" alt="${name}">
+          <strong>${name}</strong>
         </div>
-      </div>
-      <div class="qty-controls">
-        <button onclick="decreaseQty('${product}')">–</button>
-        <button onclick="increaseQty('${product}')">+</button>
-        <button onclick="removeItem('${product}')" style="margin-left:8px;border:0;background:#f8d7da;color:#842029;padding:6px;border-radius:6px;cursor:pointer">X</button>
-      </div>
-    `;
-    container.appendChild(div);
-  });
+        <div class="qty-controls">
+          <button type="button" onclick="updateQty('${name}', -1)" aria-label="Decrease quantity">-</button>
+          <span>${cart[name]}</span>
+          <button type="button" onclick="updateQty('${name}', 1)" aria-label="Increase quantity">+</button>
+        </div>
+      </div>`
+    )
+    .join("");
 }
 
-function escapeId(text){ return text.replace(/[^a-zA-Z0-9]/g, '_'); }
-
-function increaseQty(product) {
-  if (cart[product]) { cart[product].qty += 1; renderCart(); }
-}
-function decreaseQty(product) {
-  if (cart[product]) {
-    cart[product].qty = Math.max(1, cart[product].qty - 1);
-    renderCart();
-  }
-}
-function removeItem(product) {
-  delete cart[product];
+function openModal() {
+  const modal = document.getElementById("orderModal");
+  if (!modal) return;
   renderCart();
+  modal.classList.add("open");
+  modal.setAttribute("aria-hidden", "false");
 }
 
-function addSelectedProduct() {
-  const sel = document.getElementById('addProduct');
-  if (sel && sel.value) {
-    addToCart(sel.value);
-    sel.value = '';
-  }
+function closeModal() {
+  const modal = document.getElementById("orderModal");
+  if (!modal) return;
+  modal.classList.remove("open");
+  modal.setAttribute("aria-hidden", "true");
 }
+
+// Close modal when clicking outside dialog
+document.getElementById("orderModal")?.addEventListener("click", (e) => {
+  if (e.target.id === "orderModal") closeModal();
+});
 
 function submitOrder() {
   const items = Object.keys(cart);
   if (items.length === 0) {
-    alert('Your order is empty. Please add products first.');
+    alert("Please add at least one product to your order.");
     return;
   }
-  // Build message with line breaks encoded
-  let message = 'Hello Shiva Organics! I would like to order:%0A';
-  items.forEach(p => {
-    const qty = cart[p].qty;
-    const unit = quantityUnits[p] || 'L';
-    message += `- ${encodeURIComponent(p)}: ${encodeURIComponent(qty)} ${encodeURIComponent(unit + (qty === 1 ? '' : 's'))}%0A`;
-  });
-  // open WhatsApp
-  window.open(`https://wa.me/${WA_NUMBER}?text=${message}`, '_blank');
-  // close modal (keep cart if user wants)
-  closeModal();
+
+  const lines = items.map((name, idx) => `${idx + 1}. ${name} × ${cart[name]}`);
+  const message = `Hello Shivora Organics! I would like to place an order:\n\n${lines.join("\n")}\n\nPlease share availability & delivery details.`;
+  const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
+  window.open(url, "_blank", "noopener");
 }
