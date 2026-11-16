@@ -640,14 +640,27 @@ body {
 
 /* DEDICATED PRODUCT DETAIL PAGE & INFOGRAPHICS */
 .breadcrumb {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
   margin-bottom: 18px;
+  font-size: 0.88rem;
 }
 
 .breadcrumb a {
   color: var(--green);
   font-weight: 600;
   text-decoration: none;
-  font-size: 0.92rem;
+}
+
+.breadcrumb span {
+  color: var(--muted);
+}
+
+.breadcrumb-active {
+  color: var(--text) !important;
+  font-weight: 600;
 }
 
 .product-detail-page {
@@ -672,6 +685,20 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  position: relative;
+}
+
+.purity-seal {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background: var(--gold-soft);
+  color: var(--green-dark);
+  border: 1px solid rgba(212, 160, 23, 0.45);
+  font-size: 0.74rem;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 999px;
 }
 
 .detail-page-img img {
@@ -732,6 +759,25 @@ body {
   color: var(--text);
 }
 
+.rating-strip {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.stars {
+  color: #e59819;
+  font-size: 1rem;
+  letter-spacing: 1px;
+}
+
+.rating-count {
+  font-size: 0.84rem;
+  color: var(--muted);
+  font-weight: 500;
+}
+
 .detail-price-row {
   display: flex;
   flex-wrap: wrap;
@@ -745,8 +791,18 @@ body {
   color: var(--green);
 }
 
+.per-litre-badge {
+  background: rgba(35, 88, 48, 0.08);
+  color: var(--green);
+  font-size: 0.78rem;
+  font-weight: 600;
+  padding: 3px 10px;
+  border-radius: 999px;
+}
+
 .tax-note {
-  font-size: 0.8rem;
+  margin: 4px 0 0;
+  font-size: 0.78rem;
   color: var(--muted);
 }
 
@@ -779,16 +835,62 @@ body {
   margin-top: 22px;
 }
 
-.detail-highlights-box {
-  margin-top: 24px;
-  padding-top: 18px;
+.micro-trust-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 20px;
+  padding-top: 14px;
   border-top: 1px solid var(--border);
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--green-dark);
 }
 
-.detail-highlights-box h4 {
-  margin: 0 0 10px;
+/* Interactive Product Tabs */
+.detail-tabs-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  box-shadow: var(--shadow);
+  margin-top: 26px;
+  overflow: hidden;
+}
+
+.tab-headers {
+  display: flex;
+  border-bottom: 1px solid var(--border);
+  background: #faf8f3;
+  overflow-x: auto;
+}
+
+.tab-btn {
+  padding: 14px 20px;
+  background: transparent;
+  border: 0;
+  border-bottom: 3px solid transparent;
+  font-family: inherit;
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--muted);
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.2s ease;
+}
+
+.tab-btn.active {
   color: var(--green);
-  font-size: 1rem;
+  border-bottom-color: var(--green);
+  background: var(--card);
+}
+
+.tab-panel {
+  display: none;
+  padding: 22px;
+}
+
+.tab-panel.active {
+  display: block;
 }
 
 .detail-list {
@@ -798,8 +900,25 @@ body {
   line-height: 1.7;
 }
 
+.nutrition-table {
+  width: 100%;
+  max-width: 540px;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+
+.nutrition-table td {
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--border);
+}
+
+.nutrition-table td:last-child {
+  text-align: right;
+  font-weight: 600;
+  color: var(--green-dark);
+}
+
 .detail-usage-box {
-  margin-top: 18px;
   padding: 14px 16px;
   background: #faf8f3;
   border: 1px solid var(--border);
@@ -816,10 +935,126 @@ body {
   margin-bottom: 2px;
 }
 
+/* Seed-to-Bottle Process Strip */
+.process-section,
+.reviews-section {
+  margin-top: 44px;
+}
+
+.process-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+}
+
+.process-step {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 18px;
+  box-shadow: var(--shadow);
+}
+
+.step-num {
+  display: inline-block;
+  font-family: 'Playfair Display', serif;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--gold);
+  margin-bottom: 6px;
+}
+
+.process-step strong {
+  display: block;
+  color: var(--green);
+  font-size: 0.96rem;
+  margin-bottom: 4px;
+}
+
+.process-step p {
+  margin: 0;
+  font-size: 0.84rem;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+/* Verified Reviews */
+.reviews-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+
+.review-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 18px;
+  box-shadow: var(--shadow);
+}
+
+.review-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.review-card p {
+  margin: 0 0 10px;
+  font-size: 0.9rem;
+  color: var(--text);
+  line-height: 1.55;
+}
+
+.review-author {
+  font-size: 0.8rem;
+  color: var(--muted);
+  font-weight: 600;
+}
+
 .related-products-section {
   margin-top: 48px;
   padding-top: 36px;
   border-top: 1px solid var(--border);
+}
+
+/* Sticky Mobile Buy Bar */
+.sticky-buy-bar {
+  position: fixed;
+  bottom: -90px;
+  left: 0;
+  right: 0;
+  background: var(--card);
+  border-top: 1px solid var(--border);
+  box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.12);
+  padding: 10px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  z-index: 998;
+  transition: bottom 0.3s ease;
+}
+
+.sticky-buy-bar.visible {
+  bottom: 0;
+}
+
+.sticky-buy-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.sticky-buy-info strong {
+  font-size: 0.94rem;
+  color: var(--text);
+}
+
+.sticky-buy-info span {
+  font-size: 0.82rem;
+  color: var(--green);
+  font-weight: 600;
 }
 
 /* CONTACT */
@@ -1192,5 +1427,17 @@ body {
 
   .detail-usage-box {
     grid-template-columns: 1fr 1fr;
+  }
+
+  .process-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .reviews-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .sticky-buy-bar {
+    display: none;
   }
 }
