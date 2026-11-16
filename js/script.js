@@ -1,4 +1,4 @@
-// Product image map for cart previews
+// Product Image Paths
 const PRODUCT_IMAGES = {
   "Coconut Oil": "images/products/coconut_oil.jpg",
   "Groundnut Oil": "images/products/prod_grndnut_1l_oil.jpeg",
@@ -7,6 +7,73 @@ const PRODUCT_IMAGES = {
   "Mustard Oil": "images/products/prod_mustard_1l_oil.jpeg",
   "Sunflower Oil": "images/products/sunfloweroil_img.png",
   "A2 Cow Ghee": "images/products/prod_a2_ghee.jpeg"
+};
+
+// Detailed Product Information
+const PRODUCT_DETAILS = {
+  "Coconut Oil": {
+    desc: "Extracted from sun-dried, sulfur-free coconuts using traditional wooden cold-pressing to retain its natural aroma and lauric acid.",
+    highlights: [
+      "100% unrefined, cold-pressed & chemical-free",
+      "Ideal for everyday cooking, baking & oil pulling",
+      "Deeply nourishes hair and skin naturally"
+    ],
+    sizes: "500 ml, 1 Litre, 5 Litre"
+  },
+  "Groundnut Oil": {
+    desc: "Pressed at low temperatures from handpicked groundnuts, preserving heart-healthy monounsaturated fats and rich nutty aroma.",
+    highlights: [
+      "High smoke point — great for deep frying & tadka",
+      "Zero trans-fat, cholesterol-free & unbleached",
+      "Rich in natural Vitamin E and antioxidants"
+    ],
+    sizes: "1 Litre, 5 Litre"
+  },
+  "Sesame Oil": {
+    desc: "Traditionally wood-pressed from premium white sesame seeds for a warm, earthy flavour prized in Indian cooking and Ayurvedic care.",
+    highlights: [
+      "Rich in sesamol, calcium & healthy omega fatty acids",
+      "Perfect for pickles, chutneys, stir-fries & seasoning",
+      "Also suitable for traditional body massage (Abhyanga)"
+    ],
+    sizes: "500 ml, 1 Litre"
+  },
+  "Almond Oil": {
+    desc: "Pure sweet almond oil cold-pressed in small batches without heat or solvents to preserve delicate nutrients.",
+    highlights: [
+      "Loaded with Vitamin E, biotin & essential fatty acids",
+      "Gentle for baby massage, face care & hair conditioning",
+      "Can be consumed with warm milk for daily wellness"
+    ],
+    sizes: "100 ml, 250 ml, 500 ml"
+  },
+  "Mustard Oil": {
+    desc: "Kachi Ghani cold-pressed from bold, pungent mustard seeds for authentic aroma and natural sharpness.",
+    highlights: [
+      "Naturally rich in Omega-3 & Omega-6 fatty acids",
+      "Ideal for curries, marinades, pickles & sautéing",
+      "100% pure — no argemone oil or synthetic pungency"
+    ],
+    sizes: "1 Litre, 5 Litre"
+  },
+  "Sunflower Oil": {
+    desc: "Light, mild-tasting cold-pressed sunflower oil that keeps everyday meals light without overpowering spices.",
+    highlights: [
+      "Cold-pressed without chemical hexane extraction",
+      "Light texture suitable for daily cooking & baking",
+      "Natural source of Vitamin E"
+    ],
+    sizes: "1 Litre, 5 Litre"
+  },
+  "A2 Cow Ghee": {
+    desc: "Slow-simmered Bilona ghee made from cultured curd of grass-fed indigenous A2 cows for rich granular texture and pure aroma.",
+    highlights: [
+      "Prepared using the traditional two-way wooden Bilona method",
+      "Easy to digest and rich in fat-soluble vitamins A, D, E & K",
+      "No preservatives, colours, or artificial flavouring"
+    ],
+    sizes: "500 ml Glass Jar, 1 Litre"
+  }
 };
 
 const WHATSAPP_NUMBER = "919270288488";
@@ -61,7 +128,55 @@ const observer = new IntersectionObserver(
 
 document.querySelectorAll(".animate-up, .animate-item").forEach((el) => observer.observe(el));
 
-// Cart & Modal Functions
+// Clickable Product Cards -> Open Details Modal
+document.querySelectorAll(".product-card").forEach((card) => {
+  card.addEventListener("click", (e) => {
+    if (e.target.closest("button")) return;
+    const titleEl = card.querySelector("h3");
+    if (titleEl) {
+      openProductModal(titleEl.textContent.trim());
+    }
+  });
+});
+
+function openProductModal(productName) {
+  const modal = document.getElementById("productModal");
+  const info = PRODUCT_DETAILS[productName];
+  if (!modal || !info) return;
+
+  document.getElementById("detailTitle").textContent = productName;
+  const imgEl = document.getElementById("detailImg");
+  imgEl.src = PRODUCT_IMAGES[productName] || "images/site_logo.png";
+  imgEl.alt = productName;
+
+  document.getElementById("detailDesc").textContent = info.desc;
+  document.getElementById("detailSizes").textContent = info.sizes;
+
+  const listEl = document.getElementById("detailHighlights");
+  listEl.innerHTML = info.highlights.map((point) => `<li>${point}</li>`).join("");
+
+  const orderBtn = document.getElementById("detailOrderBtn");
+  orderBtn.onclick = () => {
+    closeProductModal();
+    addToCart(productName);
+  };
+
+  modal.classList.add("open");
+  modal.setAttribute("aria-hidden", "false");
+}
+
+function closeProductModal() {
+  const modal = document.getElementById("productModal");
+  if (!modal) return;
+  modal.classList.remove("open");
+  modal.setAttribute("aria-hidden", "true");
+}
+
+document.getElementById("productModal")?.addEventListener("click", (e) => {
+  if (e.target.id === "productModal") closeProductModal();
+});
+
+// Order Cart & Modal Functions
 function addToCart(productName) {
   cart[productName] = (cart[productName] || 0) + 1;
   renderCart();
@@ -127,9 +242,16 @@ function closeModal() {
   modal.setAttribute("aria-hidden", "true");
 }
 
-// Close modal when clicking outside dialog
 document.getElementById("orderModal")?.addEventListener("click", (e) => {
   if (e.target.id === "orderModal") closeModal();
+});
+
+// Close any open modal with Escape key
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Escape") {
+    closeModal();
+    closeProductModal();
+  }
 });
 
 function submitOrder() {
