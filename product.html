@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Product Details | Shivora Organics</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html#home" class="brand">
+        <img src="images/site_logo.png" alt="Shivora Organics" class="logo">
+        <div class="brand-text">
+          <h1>Shivora Organics</h1>
+          <p class="tag">Where Purity Meets Tradition</p>
+        </div>
+      </a>
+
+      <nav class="main-nav" aria-label="Main navigation">
+        <a href="index.html#home" class="nav-link">Home</a>
+        <a href="index.html#products" class="nav-link active">Shop</a>
+        <a href="index.html#about" class="nav-link">About</a>
+        <a href="index.html#contact" class="nav-link">Contact</a>
+      </nav>
+
+      <div class="header-actions">
+        <button class="cart-btn" onclick="openCartDrawer()" aria-label="Open shopping cart">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="9" cy="21" r="1"></circle>
+            <circle cx="20" cy="21" r="1"></circle>
+            <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+          </svg>
+          <span class="cart-btn-label">Cart</span>
+          <span class="cart-badge" id="cartBadge">0</span>
+        </button>
+
+        <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="section">
+    <div class="container">
+      <div class="breadcrumb">
+        <a href="index.html#products">← Back to All Products</a>
+      </div>
+
+      <div class="product-detail-page" id="productDetailPage">
+        <div class="detail-page-img">
+          <img id="detailPageImg" src="images/products/prod_grndnut_1l_oil.jpeg" alt="">
+        </div>
+
+        <div class="detail-page-info">
+          <span class="hero-pill" style="background: rgba(46,107,59,0.12); color: var(--green);">100% Pure &amp; Traditional</span>
+          <h2 id="detailPageTitle" class="detail-page-title">Loading...</h2>
+          <div class="detail-page-price" id="detailPagePrice">₹0</div>
+
+          <p id="detailPageDesc" class="muted" style="margin-top: 10px;"></p>
+
+          <div class="variant-section">
+            <label class="variant-label">Select Pack Size:</label>
+            <div class="variant-pills" id="detailVariantPills"></div>
+          </div>
+
+          <div class="detail-qty-row">
+            <label class="variant-label">Quantity:</label>
+            <div class="qty-controls">
+              <button type="button" onclick="changeDetailQty(-1)" aria-label="Decrease quantity">-</button>
+              <span id="detailQtyVal">1</span>
+              <button type="button" onclick="changeDetailQty(1)" aria-label="Increase quantity">+</button>
+            </div>
+          </div>
+
+          <div class="detail-cta-group">
+            <button id="detailAddCartBtn" class="btn btn-primary btn-lg">Add to Cart</button>
+            <button id="detailBuyNowBtn" class="btn btn-gold btn-lg">Buy Now via WhatsApp</button>
+          </div>
+
+          <div class="detail-highlights-box">
+            <h4>Why Choose This Product?</h4>
+            <ul id="detailPageHighlights" class="detail-list"></ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>© 2026 Shivora Organics — Where Purity Meets Tradition</p>
+    </div>
+  </footer>
+
+  <!-- Slide-Over Shopping Cart Drawer -->
+  <div id="cartOverlay" class="cart-overlay" onclick="closeCartDrawer()"></div>
+  <aside id="cartDrawer" class="cart-drawer" aria-hidden="true" aria-label="Shopping Cart">
+    <header class="drawer-header">
+      <h3>Your Shopping Cart</h3>
+      <button class="modal-close" onclick="closeCartDrawer()" aria-label="Close cart">✕</button>
+    </header>
+
+    <div class="drawer-body">
+      <div id="cartItemsList" class="cart-items"></div>
+
+      <div id="checkoutDetails" class="checkout-box" style="display: none;">
+        <h4>Delivery Details</h4>
+        <div class="form-group">
+          <label for="custName">Your Name *</label>
+          <input type="text" id="custName" placeholder="Enter your full name">
+        </div>
+        <div class="form-group">
+          <label for="custAddress">Delivery Address &amp; Pincode *</label>
+          <textarea id="custAddress" rows="2" placeholder="House/Flat No., Building, Area, City, Pincode"></textarea>
+        </div>
+        <div class="form-group">
+          <label for="custPayment">Payment Mode</label>
+          <select id="custPayment">
+            <option value="UPI / Online on Delivery">UPI / Online on Delivery</option>
+            <option value="Cash on Delivery (COD)">Cash on Delivery (COD)</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <footer class="drawer-footer">
+      <div class="cart-summary">
+        <div class="summary-row">
+          <span>Delivery</span>
+          <span class="free-tag">FREE</span>
+        </div>
+        <div class="summary-row total-row">
+          <span>Total Amount</span>
+          <strong id="cartSubtotal">₹0</strong>
+        </div>
+      </div>
+      <button class="btn btn-primary btn-block" onclick="submitWhatsAppOrder()">
+        Proceed to WhatsApp Order
+      </button>
+    </footer>
+  </aside>
+
+  <!-- Toast Notification -->
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+  <!-- JS -->
+  <script src="js/script.js"></script>
+</body>
+</html>
