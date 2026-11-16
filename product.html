@@ -56,14 +56,18 @@
 
   <main class="section">
     <div class="container">
+      <!-- Breadcrumb Navigation -->
       <div class="breadcrumb">
-        <a href="index.html#products">← Back to All Products</a>
+        <a href="index.html#home">Home</a> <span>/</span>
+        <a href="index.html#products">Shop</a> <span>/</span>
+        <span id="breadcrumbCurrent" class="breadcrumb-active">Product</span>
       </div>
 
       <!-- Main Product Showcase -->
       <div class="product-detail-page" id="productDetailPage">
         <div class="detail-left-col">
           <div class="detail-page-img">
+            <span class="purity-seal">100% Pure &amp; Unrefined</span>
             <img id="detailPageImg" src="images/products/prod_grndnut_1l_oil.jpeg" alt="">
           </div>
 
@@ -74,10 +78,18 @@
         <div class="detail-page-info">
           <span class="eyebrow" id="detailCategoryTag">100% Wood Cold-Pressed</span>
           <h2 id="detailPageTitle" class="detail-page-title">Loading...</h2>
+
+          <!-- Star Rating & Social Proof -->
+          <div class="rating-strip">
+            <span class="stars">★★★★★</span>
+            <span id="detailRatingText" class="rating-count">4.9 (48 Verified Customers)</span>
+          </div>
+
           <div class="detail-price-row">
             <span class="detail-page-price" id="detailPagePrice">₹0</span>
-            <span class="tax-note">(Incl. of all taxes • Delivery charges may apply)</span>
+            <span class="per-litre-badge" id="detailPerLitreNote"></span>
           </div>
+          <p class="tax-note">Inclusive of all taxes • Delivery charges may apply based on Pin Code</p>
 
           <p id="detailPageDesc" class="detail-full-desc"></p>
 
@@ -95,39 +107,109 @@
             </div>
           </div>
 
-          <div class="detail-cta-group">
+          <div class="detail-cta-group" id="mainCtaSentinel">
             <button id="detailAddCartBtn" class="btn btn-primary btn-lg">Add to Cart</button>
             <button id="detailBuyNowBtn" class="btn btn-gold btn-lg">Buy Now via WhatsApp</button>
           </div>
 
-          <div class="detail-highlights-box">
-            <h4>Key Health &amp; Purity Benefits</h4>
-            <ul id="detailPageHighlights" class="detail-list"></ul>
+          <!-- Trust Guarantees -->
+          <div class="micro-trust-row">
+            <span>✓ Fresh Weekly Batch</span>
+            <span>✓ Zero Hexane / Preservatives</span>
+            <span>✓ FSSAI: 21525069001443</span>
           </div>
+        </div>
+      </div>
 
+      <!-- INTERACTIVE TABS: Benefits | Nutrition & Purity | Culinary & FAQ -->
+      <section class="detail-tabs-card">
+        <div class="tab-headers" role="tablist">
+          <button type="button" class="tab-btn active" onclick="switchProductTab('benefits', this)">Health Benefits</button>
+          <button type="button" class="tab-btn" onclick="switchProductTab('nutrition', this)">Nutrition &amp; Purity Profile</button>
+          <button type="button" class="tab-btn" onclick="switchProductTab('usage', this)">Usage &amp; FAQs</button>
+        </div>
+
+        <div id="tab-benefits" class="tab-panel active">
+          <ul id="detailPageHighlights" class="detail-list"></ul>
+        </div>
+
+        <div id="tab-nutrition" class="tab-panel">
+          <p class="muted" style="margin-bottom: 12px;">Approximate nutritional composition per 15 ml (1 Tablespoon) serving:</p>
+          <table class="nutrition-table" id="detailNutritionTable"></table>
+        </div>
+
+        <div id="tab-usage" class="tab-panel">
           <div class="detail-usage-box">
             <div>
               <strong>Best Culinary &amp; Wellness Uses</strong>
               <p id="detailCulinaryUse" class="muted"></p>
             </div>
             <div>
-              <strong>Storage &amp; Shelf Life</strong>
+              <strong>Storage &amp; Natural Sedimentation</strong>
               <p id="detailStorageTip" class="muted"></p>
             </div>
           </div>
         </div>
-      </div>
+      </section>
+
+      <!-- FROM SEED TO BOTTLE VISUAL PROCESS -->
+      <section class="process-section">
+        <div class="section-header-center">
+          <span class="eyebrow">Our Craftsmanship</span>
+          <h3 class="section-title">How We Make Every Drop</h3>
+        </div>
+        <div class="process-grid">
+          <div class="process-step">
+            <span class="step-num">01</span>
+            <strong>Sun-Dried Farm Seeds</strong>
+            <p>Hand-cleaned, moisture-checked seeds sourced directly from trusted farms.</p>
+          </div>
+          <div class="process-step">
+            <span class="step-num">02</span>
+            <strong>Slow Wooden Kolhu</strong>
+            <p>Crushed gently below 45°C so heat never destroys antioxidants or aroma.</p>
+          </div>
+          <div class="process-step">
+            <span class="step-num">03</span>
+            <strong>Natural Cloth Filtration</strong>
+            <p>Allowed to settle naturally without chemical bleaching or acid washing.</p>
+          </div>
+          <div class="process-step">
+            <span class="step-num">04</span>
+            <strong>Small-Batch Bottling</strong>
+            <p>Packed fresh in food-grade containers straight from our Bhiwandi mill.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- VERIFIED CUSTOMER REVIEWS -->
+      <section class="reviews-section">
+        <div class="section-header-center">
+          <span class="eyebrow">Customer Love</span>
+          <h3 class="section-title">What Families Say</h3>
+        </div>
+        <div class="reviews-grid" id="detailReviewsGrid"></div>
+      </section>
 
       <!-- OTHER PRODUCTS SECTION BELOW -->
       <section class="related-products-section">
         <div class="section-header-center">
           <span class="eyebrow">Explore More From Our Mill</span>
-          <h3 class="section-title">Other Pure Oils &amp; A2 Ghee</h3>
+          <h3 class="section-title">Other Pure Oils &amp; Bilona A2 Ghee</h3>
         </div>
         <div class="product-grid" id="relatedProductsGrid"></div>
       </section>
     </div>
   </main>
+
+  <!-- Sticky Mobile Bottom Buy Bar -->
+  <div id="stickyBuyBar" class="sticky-buy-bar">
+    <div class="sticky-buy-info">
+      <strong id="stickyTitle">Product</strong>
+      <span id="stickyMeta">1 Litre • ₹0</span>
+    </div>
+    <button type="button" id="stickyAddBtn" class="btn btn-primary">Add to Cart</button>
+  </div>
 
   <footer class="site-footer">
     <div class="container">
