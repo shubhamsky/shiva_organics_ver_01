@@ -8,12 +8,17 @@
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
   <!-- CSS -->
   <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
+  <!-- Top Announcement Strip -->
+  <div class="top-strip">
+    Small-Batch Wooden Kolhu Extraction • 100% Unrefined &amp; Chemical-Free • Pan-India Dispatch
+  </div>
+
   <!-- Header -->
   <header class="site-header">
     <div class="container header-inner">
@@ -27,8 +32,9 @@
 
       <nav class="main-nav" aria-label="Main navigation">
         <a href="index.html#home" class="nav-link">Home</a>
-        <a href="index.html#products" class="nav-link active">Shop</a>
-        <a href="index.html#about" class="nav-link">About</a>
+        <a href="index.html#products" class="nav-link active">Shop Oils &amp; Ghee</a>
+        <a href="index.html#why-cold-pressed" class="nav-link">Why Cold-Pressed</a>
+        <a href="index.html#about" class="nav-link">Our Story</a>
         <a href="index.html#contact" class="nav-link">Contact</a>
       </nav>
 
@@ -54,17 +60,26 @@
         <a href="index.html#products">← Back to All Products</a>
       </div>
 
+      <!-- Main Product Showcase -->
       <div class="product-detail-page" id="productDetailPage">
-        <div class="detail-page-img">
-          <img id="detailPageImg" src="images/products/prod_grndnut_1l_oil.jpeg" alt="">
+        <div class="detail-left-col">
+          <div class="detail-page-img">
+            <img id="detailPageImg" src="images/products/prod_grndnut_1l_oil.jpeg" alt="">
+          </div>
+
+          <!-- 4 Infographic Spec Cards -->
+          <div class="infographic-grid" id="detailInfographics"></div>
         </div>
 
         <div class="detail-page-info">
-          <span class="hero-pill" style="background: rgba(46,107,59,0.12); color: var(--green);">100% Pure &amp; Traditional</span>
+          <span class="eyebrow" id="detailCategoryTag">100% Wood Cold-Pressed</span>
           <h2 id="detailPageTitle" class="detail-page-title">Loading...</h2>
-          <div class="detail-page-price" id="detailPagePrice">₹0</div>
+          <div class="detail-price-row">
+            <span class="detail-page-price" id="detailPagePrice">₹0</span>
+            <span class="tax-note">(Incl. of all taxes • Delivery charges may apply)</span>
+          </div>
 
-          <p id="detailPageDesc" class="muted" style="margin-top: 10px;"></p>
+          <p id="detailPageDesc" class="detail-full-desc"></p>
 
           <div class="variant-section">
             <label class="variant-label">Select Pack Size:</label>
@@ -86,17 +101,37 @@
           </div>
 
           <div class="detail-highlights-box">
-            <h4>Why Choose This Product?</h4>
+            <h4>Key Health &amp; Purity Benefits</h4>
             <ul id="detailPageHighlights" class="detail-list"></ul>
+          </div>
+
+          <div class="detail-usage-box">
+            <div>
+              <strong>Best Culinary &amp; Wellness Uses</strong>
+              <p id="detailCulinaryUse" class="muted"></p>
+            </div>
+            <div>
+              <strong>Storage &amp; Shelf Life</strong>
+              <p id="detailStorageTip" class="muted"></p>
+            </div>
           </div>
         </div>
       </div>
+
+      <!-- OTHER PRODUCTS SECTION BELOW -->
+      <section class="related-products-section">
+        <div class="section-header-center">
+          <span class="eyebrow">Explore More From Our Mill</span>
+          <h3 class="section-title">Other Pure Oils &amp; A2 Ghee</h3>
+        </div>
+        <div class="product-grid" id="relatedProductsGrid"></div>
+      </section>
     </div>
   </main>
 
   <footer class="site-footer">
     <div class="container">
-      <p>© 2026 Shivora Organics — Where Purity Meets Tradition</p>
+      <p>© 2026 Shivora Organics — Where Purity Meets Tradition • FSSAI: 21525069001443</p>
     </div>
   </footer>
 
@@ -112,38 +147,45 @@
       <div id="cartItemsList" class="cart-items"></div>
 
       <div id="checkoutDetails" class="checkout-box" style="display: none;">
-        <h4>Delivery Details</h4>
+        <h4>Customer &amp; Delivery Details</h4>
         <div class="form-group">
-          <label for="custName">Your Name *</label>
-          <input type="text" id="custName" placeholder="Enter your full name">
+          <label for="custName">Full Name *</label>
+          <input type="text" id="custName" placeholder="Enter your full name" required>
         </div>
         <div class="form-group">
-          <label for="custAddress">Delivery Address &amp; Pincode *</label>
-          <textarea id="custAddress" rows="2" placeholder="House/Flat No., Building, Area, City, Pincode"></textarea>
+          <label for="custPhone">Phone Number (for delivery call) *</label>
+          <input type="tel" id="custPhone" maxlength="10" placeholder="10-digit mobile number" required>
+        </div>
+        <div class="form-row-2">
+          <div class="form-group">
+            <label for="custPincode">Pin Code *</label>
+            <input type="text" id="custPincode" maxlength="6" placeholder="e.g. 421302" required>
+          </div>
+          <div class="form-group">
+            <label for="custPayment">Payment Mode</label>
+            <select id="custPayment">
+              <option value="UPI / Online on Delivery">UPI / Online</option>
+              <option value="Cash on Delivery (COD)">Cash on Delivery</option>
+            </select>
+          </div>
         </div>
         <div class="form-group">
-          <label for="custPayment">Payment Mode</label>
-          <select id="custPayment">
-            <option value="UPI / Online on Delivery">UPI / Online on Delivery</option>
-            <option value="Cash on Delivery (COD)">Cash on Delivery (COD)</option>
-          </select>
+          <label for="custAddress">Complete Delivery Address *</label>
+          <textarea id="custAddress" rows="2" placeholder="Flat/House No., Building, Landmark, City" required></textarea>
         </div>
       </div>
     </div>
 
     <footer class="drawer-footer">
       <div class="cart-summary">
-        <div class="summary-row">
-          <span>Delivery</span>
-          <span class="free-tag">FREE</span>
-        </div>
         <div class="summary-row total-row">
-          <span>Total Amount</span>
+          <span>Items Subtotal</span>
           <strong id="cartSubtotal">₹0</strong>
         </div>
+        <p class="delivery-disclaimer">* Delivery charges may apply depending on Pin Code &amp; order weight.</p>
       </div>
       <button class="btn btn-primary btn-block" onclick="submitWhatsAppOrder()">
-        Proceed to WhatsApp Order
+        Send Order on WhatsApp →
       </button>
     </footer>
   </aside>
