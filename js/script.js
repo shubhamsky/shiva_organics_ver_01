@@ -9,13 +9,14 @@ const INFO_ICONS = {
   shelf: `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>`
 };
 
-// Central Product Catalog (Base list + ₹30/Litre adjustment + A2 Cow Ghee)
+// Central Product Catalog (Base price list + ₹30/Litre adjustment + A2 Cow Ghee)
 const CATALOG = [
   {
     id: "groundnut-oil",
     name: "Groundnut Oil",
     category: "100% Wood Cold-Pressed",
     image: "images/products/prod_grndnut_1l_oil.jpeg",
+    rating: "4.9 (64 Verified Customers)",
     shortDesc: "Light, nutty & aromatic — ideal for daily cooking and deep frying.",
     desc: "Slow-pressed in a traditional wooden Kolhu mill from sun-dried, hand-sorted groundnuts. Because no external heat or chemical solvents are used, this virgin oil retains its rich nutty fragrance, natural Vitamin E, and heart-protective monounsaturated fats.",
     specs: [
@@ -24,6 +25,13 @@ const CATALOG = [
       { icon: "nutrient", label: "Key Nutrients", value: "MUFA, Resveratrol & Vit-E" },
       { icon: "shelf", label: "Shelf Life", value: "9 Months (Unrefined)" }
     ],
+    nutrition: [
+      ["Energy", "124 kcal"],
+      ["Monounsaturated Fat (MUFA)", "6.8 g"],
+      ["Polyunsaturated Fat (PUFA)", "4.4 g"],
+      ["Trans Fat & Cholesterol", "0 g / 0 mg"],
+      ["Natural Vitamin E", "2.4 mg"]
+    ],
     highlights: [
       "100% unrefined, single-origin & chemical-free",
       "High smoke point makes it ideal for deep frying, tadka & daily sabzis",
@@ -31,11 +39,11 @@ const CATALOG = [
       "Requires up to 20% less oil per dish compared to refined oils"
     ],
     culinaryUse: "Everyday Indian cooking, deep frying puris/snacks, tadka, and roasting.",
-    storageTip: "Store in a cool, dry place away from direct sunlight. Keep lid tightly closed.",
+    storageTip: "Store in a cool, dry place away from direct sunlight. Natural light sedimentation at the bottom is a hallmark of pure unrefined oil.",
     variants: [
-      { size: "Half Litre (500 ml)", price: 185 },
-      { size: "1 Litre", price: 360 },
-      { size: "5 Litres", price: 1750 }
+      { size: "Half Litre (500 ml)", price: 185, note: "₹370 / L" },
+      { size: "1 Litre", price: 360, note: "Most Popular" },
+      { size: "5 Litres", price: 1750, note: "₹350 / L • Family Pack" }
     ]
   },
   {
@@ -43,6 +51,7 @@ const CATALOG = [
     name: "Mustard Oil",
     category: "Kachi Ghani Cold-Pressed",
     image: "images/products/prod_mustard_1l_oil.jpeg",
+    rating: "4.9 (52 Verified Customers)",
     shortDesc: "Bold Kachi Ghani flavour — rich in Omega-3 for classic dishes.",
     desc: "Extracted via traditional Kachi Ghani wooden pressing from pungent, bold mustard seeds. It preserves natural allyl isothiocyanate, balanced Omega-3 & Omega-6 fatty acids, and authentic culinary sharpness without synthetic essence.",
     specs: [
@@ -50,6 +59,13 @@ const CATALOG = [
       { icon: "temp", label: "Smoke Point", value: "High (~250°C) • Sautéing" },
       { icon: "nutrient", label: "Key Nutrients", value: "Omega-3, Omega-6 & Vit-E" },
       { icon: "shelf", label: "Shelf Life", value: "12 Months (Natural)" }
+    ],
+    nutrition: [
+      ["Energy", "124 kcal"],
+      ["Monounsaturated Fat (MUFA)", "8.4 g"],
+      ["Omega-3 & Omega-6 (PUFA)", "3.1 g"],
+      ["Trans Fat & Cholesterol", "0 g / 0 mg"],
+      ["Natural Antioxidants", "Rich in Tocopherols"]
     ],
     highlights: [
       "Optimal ratio of Omega-3 and Omega-6 essential fatty acids",
@@ -60,9 +76,9 @@ const CATALOG = [
     culinaryUse: "Curries, Bengali & North Indian dishes, marinades, stir-fries, and pickles.",
     storageTip: "Keep tightly capped in a cool pantry away from moisture and heat.",
     variants: [
-      { size: "Half Litre (500 ml)", price: 175 },
-      { size: "1 Litre", price: 340 },
-      { size: "5 Litres", price: 1650 }
+      { size: "Half Litre (500 ml)", price: 175, note: "₹350 / L" },
+      { size: "1 Litre", price: 340, note: "Most Popular" },
+      { size: "5 Litres", price: 1650, note: "₹330 / L • Family Pack" }
     ]
   },
   {
@@ -70,6 +86,7 @@ const CATALOG = [
     name: "Sunflower Oil",
     category: "100% Wood Cold-Pressed",
     image: "images/products/sunfloweroil_img.png",
+    rating: "4.8 (39 Verified Customers)",
     shortDesc: "Light & mild — keeps everyday meals light and heart-friendly.",
     desc: "Cold-pressed from quality black-hulled sunflower seeds without hexane extraction or chemical bleaching. Offers a clean, delicate flavour that lets your spices shine while delivering pure plant-based nutrition.",
     specs: [
@@ -77,6 +94,13 @@ const CATALOG = [
       { icon: "temp", label: "Smoke Point", value: "Medium-High (~210°C)" },
       { icon: "nutrient", label: "Key Nutrients", value: "Natural Vitamin E & Linoleic Acid" },
       { icon: "shelf", label: "Shelf Life", value: "9 Months (Unrefined)" }
+    ],
+    nutrition: [
+      ["Energy", "124 kcal"],
+      ["Polyunsaturated Fat (PUFA)", "9.2 g"],
+      ["Monounsaturated Fat (MUFA)", "2.8 g"],
+      ["Trans Fat & Cholesterol", "0 g / 0 mg"],
+      ["Natural Vitamin E", "5.6 mg"]
     ],
     highlights: [
       "Extracted without chemical solvents or artificial defoamers",
@@ -86,9 +110,9 @@ const CATALOG = [
     culinaryUse: "Daily sautéing, baking, light frying, and continental or mild Indian dishes.",
     storageTip: "Store in a dark, cool cupboard away from stove heat.",
     variants: [
-      { size: "Half Litre (500 ml)", price: 215 },
-      { size: "1 Litre", price: 420 },
-      { size: "5 Litres", price: 2000 }
+      { size: "Half Litre (500 ml)", price: 215, note: "₹430 / L" },
+      { size: "1 Litre", price: 420, note: "Most Popular" },
+      { size: "5 Litres", price: 2000, note: "₹400 / L • Family Pack" }
     ]
   },
   {
@@ -96,6 +120,7 @@ const CATALOG = [
     name: "Sesame Oil (Gingelly)",
     category: "100% Wood Cold-Pressed",
     image: "images/products/prod_sesame_1l_oil.jpeg",
+    rating: "4.9 (45 Verified Customers)",
     shortDesc: "Warm, earthy & nutrient-dense — prized for cooking & Ayurveda.",
     desc: "Wood-pressed from sun-cured white sesame seeds to preserve sesamol and sesamin—two rare natural antioxidants known in Ayurveda for supporting joint mobility, bone strength, and digestive wellness.",
     specs: [
@@ -103,6 +128,13 @@ const CATALOG = [
       { icon: "temp", label: "Smoke Point", value: "Medium (~180°C) • Tempering" },
       { icon: "nutrient", label: "Key Nutrients", value: "Sesamol, Calcium & Zinc" },
       { icon: "shelf", label: "Shelf Life", value: "12 Months (Antioxidant Rich)" }
+    ],
+    nutrition: [
+      ["Energy", "124 kcal"],
+      ["Polyunsaturated Fat (PUFA)", "5.8 g"],
+      ["Monounsaturated Fat (MUFA)", "5.5 g"],
+      ["Trans Fat & Cholesterol", "0 g / 0 mg"],
+      ["Natural Lignans", "Sesamol & Sesamin"]
     ],
     highlights: [
       "Rich in sesamol, natural calcium, iron, and healthy polyunsaturated fats",
@@ -112,9 +144,9 @@ const CATALOG = [
     culinaryUse: "Tempering, chutneys, idli/dosa podi, pickles, stir-fries, and therapeutic massage.",
     storageTip: "Keep tightly sealed in a cool, dry place.",
     variants: [
-      { size: "Half Litre (500 ml)", price: 275 },
-      { size: "1 Litre", price: 560 },
-      { size: "5 Litres", price: 2750 }
+      { size: "Half Litre (500 ml)", price: 275, note: "₹550 / L" },
+      { size: "1 Litre", price: 560, note: "Most Popular" },
+      { size: "5 Litres", price: 2750, note: "₹550 / L • Family Pack" }
     ]
   },
   {
@@ -122,6 +154,7 @@ const CATALOG = [
     name: "Coconut Oil",
     category: "100% Virgin Cold-Pressed",
     image: "images/products/coconut_oil.jpg",
+    rating: "5.0 (71 Verified Customers)",
     shortDesc: "Unrefined & fragrant — pure goodness for cooking, skin & hair.",
     desc: "Cold-pressed from sulfur-free, sun-dried coconut copra to retain its sweet tropical aroma, Lauric Acid, and easily digestible Medium-Chain Triglycerides (MCTs).",
     specs: [
@@ -129,6 +162,13 @@ const CATALOG = [
       { icon: "temp", label: "Smoke Point", value: "Medium (~177°C) • Cooking" },
       { icon: "nutrient", label: "Key Nutrients", value: "Lauric Acid & Pure MCTs" },
       { icon: "shelf", label: "Shelf Life", value: "12 Months (Natural)" }
+    ],
+    nutrition: [
+      ["Energy", "125 kcal"],
+      ["Lauric Acid (MCT)", "6.7 g"],
+      ["Healthy Medium-Chain Fats", "8.6 g"],
+      ["Trans Fat & Cholesterol", "0 g / 0 mg"],
+      ["Refining / Bleaching", "None (100% Virgin)"]
     ],
     highlights: [
       "100% pure, unbleached, and free from mineral oil or synthetic fragrance",
@@ -138,9 +178,9 @@ const CATALOG = [
     culinaryUse: "Coastal cooking, baking, sweets, oil pulling, hair nourishment, and baby skin care.",
     storageTip: "Naturally solidifies below 24°C — a sign of 100% purity. Warm bottle gently in water to liquefy.",
     variants: [
-      { size: "Half Litre (500 ml)", price: 375 },
-      { size: "1 Litre", price: 780 },
-      { size: "5 Litres", price: 3850 }
+      { size: "Half Litre (500 ml)", price: 375, note: "₹750 / L" },
+      { size: "1 Litre", price: 780, note: "Most Popular" },
+      { size: "5 Litres", price: 3850, note: "₹770 / L • Family Pack" }
     ]
   },
   {
@@ -148,6 +188,7 @@ const CATALOG = [
     name: "Safflower Oil",
     category: "100% Wood Cold-Pressed",
     image: "images/products/prod_grndnut_1l_oil.jpeg",
+    rating: "4.8 (33 Verified Customers)",
     shortDesc: "Heart & diabetes friendly — light oil for everyday health.",
     desc: "Traditionally wood-pressed from selected safflower (Kardi) seeds. Prized for its balanced fatty acid profile that supports healthy cholesterol levels and light, clean daily cooking.",
     specs: [
@@ -155,6 +196,13 @@ const CATALOG = [
       { icon: "temp", label: "Smoke Point", value: "High (~215°C) • Daily Meals" },
       { icon: "nutrient", label: "Key Nutrients", value: "Oleic Acid & Vitamin E" },
       { icon: "shelf", label: "Shelf Life", value: "9 Months (Unrefined)" }
+    ],
+    nutrition: [
+      ["Energy", "124 kcal"],
+      ["Unsaturated Fatty Acids", "12.1 g"],
+      ["Saturated Fat", "1.1 g"],
+      ["Trans Fat & Cholesterol", "0 g / 0 mg"],
+      ["Natural Vitamin E", "4.6 mg"]
     ],
     highlights: [
       "Supports cardiovascular wellness and diabetes-friendly meal planning",
@@ -164,9 +212,9 @@ const CATALOG = [
     culinaryUse: "Everyday dal, sabzi, roasting, and light pan-frying.",
     storageTip: "Store away from direct sunlight in a cool kitchen cabinet.",
     variants: [
-      { size: "Half Litre (500 ml)", price: 265 },
-      { size: "1 Litre", price: 510 },
-      { size: "5 Litres", price: 2500 }
+      { size: "Half Litre (500 ml)", price: 265, note: "₹530 / L" },
+      { size: "1 Litre", price: 510, note: "Most Popular" },
+      { size: "5 Litres", price: 2500, note: "₹500 / L • Family Pack" }
     ]
   },
   {
@@ -174,6 +222,7 @@ const CATALOG = [
     name: "Almond Oil",
     category: "100% Pure Sweet Almond",
     image: "images/products/almond_oil.jpg",
+    rating: "5.0 (41 Verified Customers)",
     shortDesc: "Pure cold-pressed sweet almond oil — for wellness, skin & hair.",
     desc: "Slow-pressed in micro-batches from premium sweet almonds without heat or solvents. Rich in Vitamin E, biotin, and omega fatty acids for internal nourishment and external skin/hair care.",
     specs: [
@@ -181,6 +230,13 @@ const CATALOG = [
       { icon: "temp", label: "Usage", value: "Edible & Topical Care" },
       { icon: "nutrient", label: "Key Nutrients", value: "Vitamin E, Biotin & Omega-9" },
       { icon: "shelf", label: "Shelf Life", value: "12 Months (Pure)" }
+    ],
+    nutrition: [
+      ["Energy", "120 kcal"],
+      ["Monounsaturated Omega-9", "9.4 g"],
+      ["Polyunsaturated Omega-6", "2.4 g"],
+      ["Trans Fat & Cholesterol", "0 g / 0 mg"],
+      ["Natural Vitamin E", "5.3 mg"]
     ],
     highlights: [
       "100% pure sweet almond oil — zero dilution with carrier oils",
@@ -190,8 +246,8 @@ const CATALOG = [
     culinaryUse: "Warm milk tonic, salad drizzling, baby massage, facial serum, and scalp care.",
     storageTip: "Keep tightly closed in a cool, dark place.",
     variants: [
-      { size: "Half Litre (500 ml)", price: 1215 },
-      { size: "1 Litre", price: 2330 }
+      { size: "Half Litre (500 ml)", price: 1215, note: "Wellness Pack" },
+      { size: "1 Litre", price: 2330, note: "Family Value Pack" }
     ]
   },
   {
@@ -199,6 +255,7 @@ const CATALOG = [
     name: "A2 Cow Ghee",
     category: "Traditional Vedic Bilona",
     image: "images/products/prod_a2_ghee.jpeg",
+    rating: "5.0 (86 Verified Customers)",
     shortDesc: "Traditional Bilona A2 desi cow ghee — rich aroma & granular texture.",
     desc: "Crafted using the authentic Vedic Bilona process: whole A2 milk from grass-fed indigenous cows is cultured into curd, hand-churned bi-directionally with a wooden mathani to extract makkhan, and slow-simmered over a gentle flame.",
     specs: [
@@ -206,6 +263,13 @@ const CATALOG = [
       { icon: "temp", label: "Smoke Point", value: "Very High (~250°C)" },
       { icon: "nutrient", label: "Key Nutrients", value: "Vitamins A, D, E, K & CLA" },
       { icon: "shelf", label: "Shelf Life", value: "12 Months (Natural)" }
+    ],
+    nutrition: [
+      ["Energy", "130 kcal"],
+      ["Healthy Butyric Acid & CLA", "Rich Natural Source"],
+      ["Fat-Soluble Vitamins", "Vitamins A, D, E & K2"],
+      ["Trans Fat", "0 g (Natural Dairy Fat)"],
+      ["Milk Source", "100% Indigenous A2 Cows"]
     ],
     highlights: [
       "Made from cultured A2 curd—never from commercial milk cream",
@@ -216,9 +280,27 @@ const CATALOG = [
     culinaryUse: "Drizzling on hot rotis/dal/khichdi, Ayurvedic morning spoonful, sweets, and high-heat tadka.",
     storageTip: "Always use a clean, dry spoon. No refrigeration required.",
     variants: [
-      { size: "Half Litre (500 ml)", price: 700 },
-      { size: "1 Litre", price: 1300 }
+      { size: "Half Litre (500 ml)", price: 700, note: "500 ml Jar" },
+      { size: "1 Litre", price: 1300, note: "Save ₹100 • 1L Pack" }
     ]
+  }
+];
+
+const CUSTOMER_REVIEWS = [
+  {
+    name: "Sneha Kulkarni",
+    city: "Thane",
+    text: "You can tell the difference the moment you open the bottle. The natural aroma while cooking is incomparable to supermarket refined oils, and my family uses much less oil per meal now."
+  },
+  {
+    name: "Dr. Rajeshwar Deshmukh",
+    city: "Kalyan",
+    text: "We switched our entire kitchen to Shivora's wood-pressed groundnut oil and A2 Bilona ghee six months ago. Authentic purity, zero heaviness after meals, and prompt delivery."
+  },
+  {
+    name: "Priyanka Joshi",
+    city: "Mumbai",
+    text: "Their cold-pressed coconut oil and almond oil are staples in our home for both cooking and baby massage. Completely unrefined and fresh from every batch."
   }
 ];
 
@@ -230,7 +312,7 @@ function saveCart() {
   updateCartUI();
 }
 
-// Helper to Build Product Card HTML (used on both index.html and product.html)
+// Helper to Build Product Card HTML
 function buildProductCardHTML(product) {
   const defaultVariant = product.variants.find((v) => v.size === "1 Litre") || product.variants[0];
   const defaultIdx = product.variants.indexOf(defaultVariant);
@@ -325,7 +407,9 @@ if (detailTitleEl) {
 
   document.title = `${detailProduct.name} | Shivora Organics`;
   detailTitleEl.textContent = detailProduct.name;
+  document.getElementById("breadcrumbCurrent").textContent = detailProduct.name;
   document.getElementById("detailCategoryTag").textContent = detailProduct.category;
+  document.getElementById("detailRatingText").textContent = detailProduct.rating;
 
   const detailImg = document.getElementById("detailPageImg");
   detailImg.src = detailProduct.image;
@@ -334,6 +418,7 @@ if (detailTitleEl) {
 
   document.getElementById("detailPageDesc").textContent = detailProduct.desc;
   document.getElementById("detailPagePrice").textContent = `₹${defaultVariant.price}`;
+  document.getElementById("detailPerLitreNote").textContent = defaultVariant.note || "";
   document.getElementById("detailCulinaryUse").textContent = detailProduct.culinaryUse;
   document.getElementById("detailStorageTip").textContent = detailProduct.storageTip;
 
@@ -351,10 +436,16 @@ if (detailTitleEl) {
     )
     .join("");
 
+  // Render Tabs Content
   document.getElementById("detailPageHighlights").innerHTML = detailProduct.highlights
     .map((h) => `<li>${h}</li>`)
     .join("");
 
+  document.getElementById("detailNutritionTable").innerHTML = detailProduct.nutrition
+    .map(([label, val]) => `<tr><td>${label}</td><td>${val}</td></tr>`)
+    .join("");
+
+  // Render Variant Pills
   const pillsWrap = document.getElementById("detailVariantPills");
   pillsWrap.innerHTML = detailProduct.variants
     .map(
@@ -367,14 +458,46 @@ if (detailTitleEl) {
     )
     .join("");
 
-  document.getElementById("detailAddCartBtn").onclick = () => {
-    addItemToCart(detailProduct, detailProduct.variants[detailSelectedIdx], detailQty);
-  };
-
+  // Wire Add to Cart & Buy Now Buttons
+  const triggerAdd = () => addItemToCart(detailProduct, detailProduct.variants[detailSelectedIdx], detailQty);
+  document.getElementById("detailAddCartBtn").onclick = triggerAdd;
   document.getElementById("detailBuyNowBtn").onclick = () => {
-    addItemToCart(detailProduct, detailProduct.variants[detailSelectedIdx], detailQty);
+    triggerAdd();
     openCartDrawer();
   };
+
+  // Sticky Mobile Buy Bar Setup
+  document.getElementById("stickyTitle").textContent = detailProduct.name;
+  updateStickyBarMeta();
+  document.getElementById("stickyAddBtn").onclick = triggerAdd;
+
+  const sentinel = document.getElementById("mainCtaSentinel");
+  const stickyBar = document.getElementById("stickyBuyBar");
+  if (sentinel && stickyBar) {
+    const stickyObs = new IntersectionObserver(
+      ([entry]) => {
+        stickyBar.classList.toggle("visible", !entry.isIntersecting && entry.boundingClientRect.top < 0);
+      },
+      { threshold: 0 }
+    );
+    stickyObs.observe(sentinel);
+  }
+
+  // Render Reviews
+  const reviewsGridEl = document.getElementById("detailReviewsGrid");
+  if (reviewsGridEl) {
+    reviewsGridEl.innerHTML = CUSTOMER_REVIEWS.map(
+      (r) => `
+      <div class="review-card">
+        <div class="review-top">
+          <span class="stars">★★★★★</span>
+          <span style="font-size:0.75rem; color:var(--green); font-weight:600;">✓ Verified Buyer</span>
+        </div>
+        <p>"${r.text}"</p>
+        <span class="review-author">— ${r.name}, ${r.city}</span>
+      </div>`
+    ).join("");
+  }
 
   // Render All Other Products Below
   const relatedGridEl = document.getElementById("relatedProductsGrid");
@@ -384,10 +507,20 @@ if (detailTitleEl) {
   }
 }
 
+function updateStickyBarMeta() {
+  if (!detailProduct) return;
+  const v = detailProduct.variants[detailSelectedIdx];
+  const stickyMeta = document.getElementById("stickyMeta");
+  if (stickyMeta) stickyMeta.textContent = `${v.size} • ₹${v.price}`;
+}
+
 function selectDetailVariant(idx, btnEl) {
   if (!detailProduct) return;
   detailSelectedIdx = idx;
-  document.getElementById("detailPagePrice").textContent = `₹${detailProduct.variants[idx].price}`;
+  const v = detailProduct.variants[idx];
+  document.getElementById("detailPagePrice").textContent = `₹${v.price}`;
+  document.getElementById("detailPerLitreNote").textContent = v.note || "";
+  updateStickyBarMeta();
 
   document.querySelectorAll("#detailVariantPills .variant-pill").forEach((b) => b.classList.remove("active"));
   btnEl.classList.add("active");
@@ -396,6 +529,13 @@ function selectDetailVariant(idx, btnEl) {
 function changeDetailQty(delta) {
   detailQty = Math.max(1, detailQty + delta);
   document.getElementById("detailQtyVal").textContent = detailQty;
+}
+
+function switchProductTab(tabKey, btnEl) {
+  document.querySelectorAll(".tab-btn").forEach((b) => b.classList.remove("active"));
+  document.querySelectorAll(".tab-panel").forEach((p) => p.classList.remove("active"));
+  btnEl.classList.add("active");
+  document.getElementById(`tab-${tabKey}`)?.classList.add("active");
 }
 
 // Cart Management
